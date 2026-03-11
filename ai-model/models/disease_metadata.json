@@ -1,0 +1,1212 @@
+{
+  "Common Cold": {
+    "severity": "mild",
+    "precautions": [
+      "Rest at home",
+      "Stay hydrated with warm fluids",
+      "Steam inhalation",
+      "Gargle with warm salt water",
+      "Take OTC cold medications"
+    ],
+    "explanation": "A viral upper respiratory infection caused by rhinoviruses. Usually resolves in 7-10 days.",
+    "recommendations": [
+      "Vitamin C supplements",
+      "Honey and ginger tea",
+      "Avoid cold drinks"
+    ]
+  },
+  "Influenza": {
+    "severity": "moderate",
+    "precautions": [
+      "Bed rest and isolate",
+      "Take antiviral medication within 48 hrs",
+      "Monitor temperature",
+      "Drink electrolyte fluids"
+    ],
+    "explanation": "A highly contagious respiratory illness caused by influenza A or B viruses.",
+    "recommendations": [
+      "Annual flu vaccine",
+      "Antiviral drugs if within 48 hrs",
+      "Electrolyte drinks"
+    ]
+  },
+  "COVID-19": {
+    "severity": "moderate",
+    "precautions": [
+      "Isolate immediately",
+      "Monitor oxygen with pulse oximeter",
+      "Seek emergency if SpO2 < 94%"
+    ],
+    "explanation": "Caused by SARS-CoV-2 coronavirus. Ranges from mild to life-threatening.",
+    "recommendations": [
+      "COVID-19 vaccination",
+      "Antiviral treatment if eligible",
+      "Rest and hydration"
+    ]
+  },
+  "Asthma": {
+    "severity": "moderate",
+    "precautions": [
+      "Use prescribed inhaler immediately",
+      "Avoid triggers (dust, smoke, pollen)",
+      "Sit upright"
+    ],
+    "explanation": "Chronic inflammatory disease of the airways causing recurrent breathing difficulty.",
+    "recommendations": [
+      "Carry rescue inhaler always",
+      "Allergy testing",
+      "Air purifier at home"
+    ]
+  },
+  "Bronchitis": {
+    "severity": "mild",
+    "precautions": [
+      "Avoid smoking",
+      "Stay hydrated",
+      "Use humidifier",
+      "Rest adequately"
+    ],
+    "explanation": "Inflammation of the bronchial tubes. Acute bronchitis is usually viral.",
+    "recommendations": [
+      "Expectorant cough syrup",
+      "Avoid secondhand smoke",
+      "Honey and lemon tea"
+    ]
+  },
+  "Pneumonia": {
+    "severity": "severe",
+    "precautions": [
+      "Seek immediate medical attention",
+      "Complete full antibiotic course",
+      "Monitor oxygen levels"
+    ],
+    "explanation": "Serious lung infection that inflames air sacs. Caused by bacteria, viruses, or fungi.",
+    "recommendations": [
+      "Hospitalization may be needed",
+      "Pneumonia vaccine",
+      "Complete antibiotic course"
+    ]
+  },
+  "Tuberculosis": {
+    "severity": "severe",
+    "precautions": [
+      "Immediate medical evaluation",
+      "Complete 6-9 month antibiotic course",
+      "Isolate to prevent spread"
+    ],
+    "explanation": "A bacterial infection caused by Mycobacterium tuberculosis primarily affecting the lungs.",
+    "recommendations": [
+      "DOTS therapy",
+      "Regular sputum tests",
+      "BCG vaccination"
+    ]
+  },
+  "Sinusitis": {
+    "severity": "mild",
+    "precautions": [
+      "Nasal saline rinses",
+      "Steam inhalation",
+      "Stay hydrated",
+      "Decongestants"
+    ],
+    "explanation": "Inflammation of the sinuses, often following a cold or allergy.",
+    "recommendations": [
+      "Neti pot for nasal irrigation",
+      "Avoid allergens",
+      "Humidifier"
+    ]
+  },
+  "Allergic Rhinitis": {
+    "severity": "mild",
+    "precautions": [
+      "Identify and avoid allergens",
+      "Antihistamines",
+      "Saline nasal rinse"
+    ],
+    "explanation": "Allergic response to environmental allergens like pollen, dust mites, pet dander.",
+    "recommendations": [
+      "Allergy testing",
+      "Immunotherapy shots",
+      "Air purifier"
+    ]
+  },
+  "COPD": {
+    "severity": "severe",
+    "precautions": [
+      "Stop smoking immediately",
+      "Pulmonary rehabilitation",
+      "Use prescribed inhalers"
+    ],
+    "explanation": "Chronic obstructive pulmonary disease \u2014 progressive lung disease mainly caused by smoking.",
+    "recommendations": [
+      "Smoking cessation program",
+      "Flu and pneumonia vaccines",
+      "Pulmonary rehab"
+    ]
+  },
+  "Whooping Cough": {
+    "severity": "moderate",
+    "precautions": [
+      "Isolate from infants",
+      "Complete antibiotic course",
+      "Vaccination"
+    ],
+    "explanation": "Highly contagious bacterial infection caused by Bordetella pertussis.",
+    "recommendations": [
+      "DTaP/Tdap vaccination",
+      "Antibiotics early in illness",
+      "Humidifier"
+    ]
+  },
+  "Pleurisy": {
+    "severity": "moderate",
+    "precautions": [
+      "Rest",
+      "Pain relievers",
+      "Treat underlying cause",
+      "Seek medical evaluation"
+    ],
+    "explanation": "Inflammation of the tissue layers surrounding the lungs.",
+    "recommendations": [
+      "Anti-inflammatory medications",
+      "Treat underlying infection",
+      "Rest"
+    ]
+  },
+  "Gastroenteritis": {
+    "severity": "mild",
+    "precautions": [
+      "ORS for rehydration",
+      "BRAT diet",
+      "Avoid dairy and spicy food"
+    ],
+    "explanation": "Inflammation of the stomach and intestines typically caused by viral or bacterial infection.",
+    "recommendations": [
+      "Probiotics after recovery",
+      "Zinc supplements",
+      "Gradual diet reintroduction"
+    ]
+  },
+  "GERD": {
+    "severity": "mild",
+    "precautions": [
+      "Avoid spicy and fatty foods",
+      "Don't lie down after eating",
+      "Elevate bed head"
+    ],
+    "explanation": "Gastroesophageal reflux disease \u2014 stomach acid frequently flows back into esophagus.",
+    "recommendations": [
+      "Antacids or PPIs",
+      "Small frequent meals",
+      "Weight loss if overweight"
+    ]
+  },
+  "Peptic Ulcer": {
+    "severity": "moderate",
+    "precautions": [
+      "Avoid NSAIDs and aspirin",
+      "Avoid alcohol and smoking",
+      "Eat small meals"
+    ],
+    "explanation": "Open sores on stomach lining or small intestine. Often caused by H. pylori or NSAIDs.",
+    "recommendations": [
+      "H. pylori testing and treatment",
+      "Proton pump inhibitors",
+      "Stress reduction"
+    ]
+  },
+  "Appendicitis": {
+    "severity": "severe",
+    "precautions": [
+      "Go to ER IMMEDIATELY",
+      "Do not eat or drink",
+      "Do not apply heat to abdomen"
+    ],
+    "explanation": "Inflammation of the appendix \u2014 a medical emergency requiring surgery.",
+    "recommendations": [
+      "Emergency appendectomy",
+      "Antibiotics pre-surgery",
+      "Post-op care"
+    ]
+  },
+  "Irritable Bowel Syndrome": {
+    "severity": "mild",
+    "precautions": [
+      "Identify trigger foods",
+      "Eat regular small meals",
+      "Reduce stress"
+    ],
+    "explanation": "Functional bowel disorder causing cramping, abdominal pain, and altered bowel habits.",
+    "recommendations": [
+      "Low-FODMAP diet",
+      "Probiotics",
+      "Stress management techniques"
+    ]
+  },
+  "Gallstones": {
+    "severity": "moderate",
+    "precautions": [
+      "Avoid high-fat meals",
+      "Seek medical evaluation",
+      "Monitor for worsening pain"
+    ],
+    "explanation": "Hardened deposits in the gallbladder that can cause severe abdominal pain.",
+    "recommendations": [
+      "Low-fat diet",
+      "Cholecystectomy if recurrent",
+      "Ursodiol medication"
+    ]
+  },
+  "Food Poisoning": {
+    "severity": "moderate",
+    "precautions": [
+      "Stay hydrated with ORS",
+      "Rest",
+      "Avoid solid food initially"
+    ],
+    "explanation": "Illness caused by consuming contaminated food or water.",
+    "recommendations": [
+      "ORS fluids",
+      "BRAT diet",
+      "Medical attention if symptoms persist >48 hrs"
+    ]
+  },
+  "Celiac Disease": {
+    "severity": "moderate",
+    "precautions": [
+      "Strict gluten-free diet",
+      "Read food labels carefully",
+      "Avoid cross-contamination"
+    ],
+    "explanation": "Autoimmune disorder triggered by gluten consumption, damaging the small intestine.",
+    "recommendations": [
+      "Lifelong gluten-free diet",
+      "Nutritional supplements",
+      "Regular GI checkups"
+    ]
+  },
+  "Crohn's Disease": {
+    "severity": "severe",
+    "precautions": [
+      "Follow prescribed medication plan",
+      "Avoid trigger foods",
+      "Manage stress"
+    ],
+    "explanation": "Chronic inflammatory bowel disease affecting any part of the GI tract.",
+    "recommendations": [
+      "Immunosuppressive therapy",
+      "Nutritional support",
+      "Regular colonoscopy"
+    ]
+  },
+  "Hepatitis A": {
+    "severity": "moderate",
+    "precautions": [
+      "Rest",
+      "Avoid alcohol completely",
+      "Stay hydrated",
+      "Good hand hygiene"
+    ],
+    "explanation": "Liver infection caused by hepatitis A virus, spread through contaminated food/water.",
+    "recommendations": [
+      "Hepatitis A vaccination",
+      "Supportive care",
+      "Avoid hepatotoxic drugs"
+    ]
+  },
+  "Hepatitis B": {
+    "severity": "severe",
+    "precautions": [
+      "Avoid alcohol",
+      "Safe sexual practices",
+      "Don't share needles"
+    ],
+    "explanation": "Serious liver infection caused by hepatitis B virus. Can become chronic.",
+    "recommendations": [
+      "Hepatitis B vaccination",
+      "Antiviral medications",
+      "Regular liver monitoring"
+    ]
+  },
+  "Migraine": {
+    "severity": "moderate",
+    "precautions": [
+      "Rest in dark quiet room",
+      "Cold compress",
+      "Take medication at onset"
+    ],
+    "explanation": "Neurological condition causing intense throbbing headaches, often on one side.",
+    "recommendations": [
+      "Identify triggers (diet, sleep, stress)",
+      "Triptans",
+      "Preventive medications"
+    ]
+  },
+  "Tension Headache": {
+    "severity": "mild",
+    "precautions": [
+      "Rest",
+      "OTC pain relievers",
+      "Reduce stress",
+      "Gentle neck stretches"
+    ],
+    "explanation": "Most common type of headache causing dull, aching pressure around the head.",
+    "recommendations": [
+      "Stress management",
+      "Regular sleep schedule",
+      "Physical therapy"
+    ]
+  },
+  "Epilepsy": {
+    "severity": "severe",
+    "precautions": [
+      "Take medications consistently",
+      "Avoid seizure triggers",
+      "Do not drive during active seizures"
+    ],
+    "explanation": "Neurological disorder causing recurrent unprovoked seizures.",
+    "recommendations": [
+      "Anti-epileptic drugs (AEDs)",
+      "Regular neurologist visits",
+      "Medical alert bracelet"
+    ]
+  },
+  "Meningitis": {
+    "severity": "severe",
+    "precautions": [
+      "EMERGENCY \u2014 go to ER immediately",
+      "Antibiotics must be started immediately"
+    ],
+    "explanation": "Life-threatening inflammation of membranes surrounding the brain and spinal cord.",
+    "recommendations": [
+      "Immediate IV antibiotics",
+      "ICU care",
+      "Meningitis vaccination"
+    ]
+  },
+  "Stroke": {
+    "severity": "severe",
+    "precautions": [
+      "EMERGENCY \u2014 call 911 immediately",
+      "Note time symptoms started",
+      "Do not give food/water"
+    ],
+    "explanation": "Medical emergency where blood supply to part of brain is cut off.",
+    "recommendations": [
+      "Immediate thrombolysis if ischemic",
+      "Stroke unit care",
+      "Rehabilitation"
+    ]
+  },
+  "Parkinson's Disease": {
+    "severity": "severe",
+    "precautions": [
+      "Take medications on schedule",
+      "Fall prevention measures",
+      "Physical therapy"
+    ],
+    "explanation": "Progressive nervous system disorder affecting movement.",
+    "recommendations": [
+      "Levodopa therapy",
+      "Exercise program",
+      "Occupational therapy"
+    ]
+  },
+  "Multiple Sclerosis": {
+    "severity": "severe",
+    "precautions": [
+      "Avoid overheating",
+      "Take prescribed disease-modifying therapies",
+      "Regular physiotherapy"
+    ],
+    "explanation": "Disease where immune system attacks the myelin sheath protecting nerve fibers.",
+    "recommendations": [
+      "Disease-modifying therapy",
+      "Physical rehabilitation",
+      "Vitamin D supplementation"
+    ]
+  },
+  "Alzheimer's Disease": {
+    "severity": "severe",
+    "precautions": [
+      "Structured daily routine",
+      "Safe home environment",
+      "Caregiver support"
+    ],
+    "explanation": "Progressive neurodegenerative disease causing memory loss and cognitive decline.",
+    "recommendations": [
+      "Cholinesterase inhibitors",
+      "Cognitive stimulation therapy",
+      "Caregiver education"
+    ]
+  },
+  "Hypertension": {
+    "severity": "moderate",
+    "precautions": [
+      "Monitor BP daily",
+      "Reduce sodium intake",
+      "Exercise regularly",
+      "Take medications consistently"
+    ],
+    "explanation": "Chronically elevated blood pressure that increases risk of heart attack and stroke.",
+    "recommendations": [
+      "Low-sodium DASH diet",
+      "30 min aerobic exercise 5x/week",
+      "Antihypertensive medications"
+    ]
+  },
+  "Hypotension": {
+    "severity": "mild",
+    "precautions": [
+      "Stand up slowly",
+      "Stay hydrated",
+      "Avoid prolonged standing",
+      "Wear compression stockings"
+    ],
+    "explanation": "Abnormally low blood pressure that can cause dizziness and fainting.",
+    "recommendations": [
+      "Increase fluid and salt intake",
+      "Small frequent meals",
+      "Elevation stockings"
+    ]
+  },
+  "Coronary Artery Disease": {
+    "severity": "severe",
+    "precautions": [
+      "Emergency care if chest pain",
+      "Take prescribed medications",
+      "Cardiac rehabilitation"
+    ],
+    "explanation": "Plaque buildup in coronary arteries reducing blood flow to the heart.",
+    "recommendations": [
+      "Statins",
+      "Aspirin therapy",
+      "Cardiac rehabilitation",
+      "Low-fat diet"
+    ]
+  },
+  "Heart Failure": {
+    "severity": "severe",
+    "precautions": [
+      "Fluid restriction",
+      "Daily weight monitoring",
+      "Sodium restriction",
+      "Take diuretics"
+    ],
+    "explanation": "Heart cannot pump enough blood to meet body's needs.",
+    "recommendations": [
+      "ACE inhibitors",
+      "Beta blockers",
+      "Diuretics",
+      "Low-sodium diet"
+    ]
+  },
+  "Atrial Fibrillation": {
+    "severity": "moderate",
+    "precautions": [
+      "Take anticoagulants as prescribed",
+      "Avoid caffeine and alcohol",
+      "Monitor pulse"
+    ],
+    "explanation": "Irregular and often rapid heart rate that can cause stroke and heart failure.",
+    "recommendations": [
+      "Anticoagulation therapy",
+      "Rate or rhythm control",
+      "Lifestyle modification"
+    ]
+  },
+  "Diabetes Type 1": {
+    "severity": "severe",
+    "precautions": [
+      "Take insulin exactly as prescribed",
+      "Monitor blood glucose regularly",
+      "Carry glucose tablets"
+    ],
+    "explanation": "Autoimmune destruction of insulin-producing pancreatic beta cells.",
+    "recommendations": [
+      "Insulin therapy",
+      "Continuous glucose monitoring",
+      "Carbohydrate counting"
+    ]
+  },
+  "Diabetes Type 2": {
+    "severity": "moderate",
+    "precautions": [
+      "Monitor blood glucose daily",
+      "Low-carb balanced diet",
+      "Regular exercise",
+      "Take medications"
+    ],
+    "explanation": "Insulin resistance leading to elevated blood glucose. Often lifestyle-related.",
+    "recommendations": [
+      "Metformin",
+      "Low-carb diet",
+      "Weight loss",
+      "Regular A1C monitoring"
+    ]
+  },
+  "Hypothyroidism": {
+    "severity": "moderate",
+    "precautions": [
+      "Take levothyroxine consistently",
+      "Regular TSH blood tests",
+      "Avoid soy and high-fiber near medication"
+    ],
+    "explanation": "Underactive thyroid gland producing insufficient thyroid hormones.",
+    "recommendations": [
+      "Levothyroxine replacement",
+      "Regular thyroid function tests",
+      "Selenium-rich diet"
+    ]
+  },
+  "Hyperthyroidism": {
+    "severity": "moderate",
+    "precautions": [
+      "Take antithyroid medications",
+      "Avoid iodine-rich foods",
+      "Regular thyroid monitoring"
+    ],
+    "explanation": "Overactive thyroid producing too much thyroxine hormone.",
+    "recommendations": [
+      "Antithyroid drugs",
+      "Radioactive iodine therapy",
+      "Beta blockers for symptoms"
+    ]
+  },
+  "Cushing's Syndrome": {
+    "severity": "severe",
+    "precautions": [
+      "Medical evaluation required",
+      "Do not stop steroid medications abruptly"
+    ],
+    "explanation": "Disorder caused by prolonged exposure to high cortisol levels.",
+    "recommendations": [
+      "Taper corticosteroids slowly",
+      "Adrenal surgery if tumor",
+      "Cortisol-blocking medications"
+    ]
+  },
+  "Polycystic Ovary Syndrome": {
+    "severity": "moderate",
+    "precautions": [
+      "Maintain healthy weight",
+      "Regular exercise",
+      "Low-glycemic diet"
+    ],
+    "explanation": "Hormonal disorder in women causing enlarged ovaries with small cysts.",
+    "recommendations": [
+      "Oral contraceptives",
+      "Metformin",
+      "Lifestyle modification",
+      "Fertility treatment if needed"
+    ]
+  },
+  "Malaria": {
+    "severity": "severe",
+    "precautions": [
+      "Seek immediate medical evaluation",
+      "Take full antimalarial course",
+      "Use mosquito nets"
+    ],
+    "explanation": "Mosquito-borne parasitic infection caused by Plasmodium species.",
+    "recommendations": [
+      "Artemisinin-based therapy",
+      "Prophylaxis when traveling",
+      "Mosquito repellent"
+    ]
+  },
+  "Dengue Fever": {
+    "severity": "severe",
+    "precautions": [
+      "Hospital evaluation required",
+      "Monitor platelet count daily",
+      "DO NOT take NSAIDs or aspirin"
+    ],
+    "explanation": "Mosquito-borne viral infection with risk of hemorrhagic fever.",
+    "recommendations": [
+      "Platelet monitoring",
+      "IV fluids if severe",
+      "Paracetamol only for fever"
+    ]
+  },
+  "Typhoid Fever": {
+    "severity": "severe",
+    "precautions": [
+      "Start antibiotics immediately",
+      "Drink only boiled/bottled water",
+      "Eat thoroughly cooked food"
+    ],
+    "explanation": "Bacterial infection caused by Salmonella typhi from contaminated food/water.",
+    "recommendations": [
+      "Ciprofloxacin or ceftriaxone",
+      "Typhoid vaccination",
+      "Food and water hygiene"
+    ]
+  },
+  "Chickenpox": {
+    "severity": "mild",
+    "precautions": [
+      "Isolate from others",
+      "Calamine lotion for itching",
+      "Trim nails to avoid scratching"
+    ],
+    "explanation": "Highly contagious viral infection caused by varicella-zoster virus.",
+    "recommendations": [
+      "Varicella vaccination",
+      "Antihistamines for itching",
+      "Antiviral in severe cases"
+    ]
+  },
+  "Measles": {
+    "severity": "moderate",
+    "precautions": [
+      "Isolate immediately",
+      "Vitamin A supplementation",
+      "Report to public health"
+    ],
+    "explanation": "Highly contagious viral infection preventable by MMR vaccination.",
+    "recommendations": [
+      "MMR vaccination",
+      "Vitamin A supplements",
+      "Supportive care"
+    ]
+  },
+  "Mumps": {
+    "severity": "moderate",
+    "precautions": [
+      "Isolate for 5 days after swelling starts",
+      "Soft foods",
+      "Pain relievers"
+    ],
+    "explanation": "Contagious viral infection primarily affecting the parotid salivary glands.",
+    "recommendations": [
+      "MMR vaccination",
+      "Pain management",
+      "Warm or cold compress to jaw"
+    ]
+  },
+  "HIV/AIDS": {
+    "severity": "severe",
+    "precautions": [
+      "Take ART medications consistently",
+      "Practice safe sex",
+      "Regular CD4 monitoring"
+    ],
+    "explanation": "Virus attacking immune system CD4 cells, leading to AIDS if untreated.",
+    "recommendations": [
+      "Antiretroviral therapy (ART)",
+      "PrEP for prevention",
+      "Regular viral load monitoring"
+    ]
+  },
+  "Lyme Disease": {
+    "severity": "moderate",
+    "precautions": [
+      "Complete full antibiotic course",
+      "Tick removal properly",
+      "Check for ticks after outdoors"
+    ],
+    "explanation": "Tick-borne bacterial infection caused by Borrelia burgdorferi.",
+    "recommendations": [
+      "Doxycycline antibiotics",
+      "Tick prevention measures",
+      "DEET repellent"
+    ]
+  },
+  "Psoriasis": {
+    "severity": "moderate",
+    "precautions": [
+      "Moisturize regularly",
+      "Avoid triggers (stress, alcohol)",
+      "Gentle skin care"
+    ],
+    "explanation": "Autoimmune skin disease causing rapid skin cell buildup forming scaly patches.",
+    "recommendations": [
+      "Topical corticosteroids",
+      "Biologic agents",
+      "Phototherapy",
+      "Stress reduction"
+    ]
+  },
+  "Eczema": {
+    "severity": "mild",
+    "precautions": [
+      "Moisturize twice daily",
+      "Avoid known triggers",
+      "Use fragrance-free products",
+      "Keep nails short"
+    ],
+    "explanation": "Chronic inflammatory skin condition causing itchy, inflamed skin.",
+    "recommendations": [
+      "Emollients",
+      "Topical corticosteroids",
+      "Antihistamines for itching",
+      "Identify triggers"
+    ]
+  },
+  "Acne": {
+    "severity": "mild",
+    "precautions": [
+      "Wash face twice daily",
+      "Avoid touching face",
+      "Use non-comedogenic products"
+    ],
+    "explanation": "Common skin condition caused by hair follicles plugged with oil and dead skin cells.",
+    "recommendations": [
+      "Benzoyl peroxide",
+      "Retinoids",
+      "Antibiotics for severe cases",
+      "Isotretinoin"
+    ]
+  },
+  "Ringworm": {
+    "severity": "mild",
+    "precautions": [
+      "Keep affected area dry",
+      "Avoid sharing towels",
+      "Antifungal cream"
+    ],
+    "explanation": "Fungal skin infection causing ring-shaped rash despite its name.",
+    "recommendations": [
+      "Topical antifungals",
+      "Keep skin dry",
+      "Wash bedding regularly"
+    ]
+  },
+  "Urticaria": {
+    "severity": "moderate",
+    "precautions": [
+      "Identify and avoid triggers",
+      "Antihistamines",
+      "Seek emergency care if breathing affected"
+    ],
+    "explanation": "Raised, itchy welts on the skin triggered by allergic reactions.",
+    "recommendations": [
+      "Antihistamines",
+      "Identify allergen triggers",
+      "Epinephrine for severe reactions"
+    ]
+  },
+  "Cellulitis": {
+    "severity": "moderate",
+    "precautions": [
+      "Antibiotics required",
+      "Elevate affected area",
+      "Keep wound clean and covered"
+    ],
+    "explanation": "Bacterial skin infection causing red, swollen, warm and tender skin.",
+    "recommendations": [
+      "Oral or IV antibiotics",
+      "Wound care",
+      "Monitor for spreading redness"
+    ]
+  },
+  "Shingles": {
+    "severity": "moderate",
+    "precautions": [
+      "Start antiviral within 72 hrs",
+      "Keep rash covered",
+      "Avoid contact with immunocompromised"
+    ],
+    "explanation": "Reactivation of varicella-zoster virus causing painful skin rash.",
+    "recommendations": [
+      "Acyclovir or valacyclovir",
+      "Pain management",
+      "Shingrix vaccine for prevention"
+    ]
+  },
+  "Depression": {
+    "severity": "moderate",
+    "precautions": [
+      "Seek mental health professional",
+      "Do not stop medications abruptly",
+      "Maintain social connections"
+    ],
+    "explanation": "Mood disorder causing persistent sadness and loss of interest.",
+    "recommendations": [
+      "CBT therapy",
+      "Antidepressants (SSRIs)",
+      "Exercise",
+      "Social support"
+    ]
+  },
+  "Anxiety Disorder": {
+    "severity": "moderate",
+    "precautions": [
+      "Practice breathing exercises",
+      "Limit caffeine",
+      "Regular exercise",
+      "Seek therapy"
+    ],
+    "explanation": "Persistent excessive worry or fear interfering with daily activities.",
+    "recommendations": [
+      "CBT therapy",
+      "SSRIs or SNRIs",
+      "Mindfulness meditation",
+      "Avoid caffeine"
+    ]
+  },
+  "Panic Disorder": {
+    "severity": "moderate",
+    "precautions": [
+      "Breathing techniques during attack",
+      "Avoid avoidance behaviors",
+      "Seek CBT therapy"
+    ],
+    "explanation": "Recurring unexpected panic attacks causing significant behavioral changes.",
+    "recommendations": [
+      "CBT therapy",
+      "Exposure therapy",
+      "SSRIs",
+      "Benzodiazepines short-term"
+    ]
+  },
+  "Bipolar Disorder": {
+    "severity": "severe",
+    "precautions": [
+      "Take mood stabilizers consistently",
+      "Regular psychiatric monitoring",
+      "Avoid alcohol and drugs"
+    ],
+    "explanation": "Mental disorder with extreme mood swings including manic and depressive episodes.",
+    "recommendations": [
+      "Lithium or valproate",
+      "CBT therapy",
+      "Sleep schedule regulation"
+    ]
+  },
+  "PTSD": {
+    "severity": "moderate",
+    "precautions": [
+      "Seek trauma-informed therapy",
+      "Build support network",
+      "Avoid substance use"
+    ],
+    "explanation": "Mental health condition triggered by experiencing or witnessing a terrifying event.",
+    "recommendations": [
+      "EMDR therapy",
+      "Prolonged exposure therapy",
+      "SSRIs",
+      "Support groups"
+    ]
+  },
+  "OCD": {
+    "severity": "moderate",
+    "precautions": [
+      "ERP therapy is gold standard",
+      "Do not avoid triggers completely",
+      "Take prescribed medications"
+    ],
+    "explanation": "Anxiety disorder with uncontrollable recurring thoughts and repetitive behaviors.",
+    "recommendations": [
+      "Exposure response prevention (ERP)",
+      "SSRIs (fluvoxamine)",
+      "CBT therapy"
+    ]
+  },
+  "Schizophrenia": {
+    "severity": "severe",
+    "precautions": [
+      "Never stop antipsychotics without medical guidance",
+      "Regular psychiatric care",
+      "Family support"
+    ],
+    "explanation": "Serious mental disorder affecting thinking, feeling, and behavior.",
+    "recommendations": [
+      "Antipsychotic medications",
+      "Psychosocial rehabilitation",
+      "Family therapy"
+    ]
+  },
+  "Rheumatoid Arthritis": {
+    "severity": "moderate",
+    "precautions": [
+      "Take DMARDs as prescribed",
+      "Regular exercise",
+      "Joint protection techniques"
+    ],
+    "explanation": "Autoimmune disorder causing chronic inflammation of joints.",
+    "recommendations": [
+      "Methotrexate",
+      "Biologics",
+      "Physical therapy",
+      "Anti-inflammatory diet"
+    ]
+  },
+  "Osteoarthritis": {
+    "severity": "moderate",
+    "precautions": [
+      "Weight management",
+      "Low-impact exercise",
+      "Joint-protective movement"
+    ],
+    "explanation": "Degenerative joint disease from cartilage breakdown, most common form of arthritis.",
+    "recommendations": [
+      "NSAIDs",
+      "Physical therapy",
+      "Weight loss",
+      "Glucosamine supplements"
+    ]
+  },
+  "Gout": {
+    "severity": "moderate",
+    "precautions": [
+      "Avoid purine-rich foods (organ meats, shellfish)",
+      "Stay hydrated",
+      "Limit alcohol"
+    ],
+    "explanation": "Painful form of inflammatory arthritis caused by urate crystal accumulation in joints.",
+    "recommendations": [
+      "Colchicine during attack",
+      "Allopurinol for prevention",
+      "Low-purine diet"
+    ]
+  },
+  "Fibromyalgia": {
+    "severity": "moderate",
+    "precautions": [
+      "Pace activities",
+      "Regular gentle exercise",
+      "Sleep hygiene"
+    ],
+    "explanation": "Disorder with widespread musculoskeletal pain, fatigue, sleep, and cognitive issues.",
+    "recommendations": [
+      "Duloxetine or pregabalin",
+      "Low-impact exercise",
+      "CBT therapy",
+      "Sleep improvement"
+    ]
+  },
+  "Osteoporosis": {
+    "severity": "moderate",
+    "precautions": [
+      "Fall prevention",
+      "Take calcium and vitamin D",
+      "Weight-bearing exercise"
+    ],
+    "explanation": "Condition where bones become weak and brittle, increasing fracture risk.",
+    "recommendations": [
+      "Bisphosphonates",
+      "Calcium + Vitamin D",
+      "Resistance exercise",
+      "DEXA scans"
+    ]
+  },
+  "Urinary Tract Infection": {
+    "severity": "moderate",
+    "precautions": [
+      "Complete antibiotic course",
+      "Drink 8-10 glasses water daily",
+      "Avoid caffeine"
+    ],
+    "explanation": "Bacterial infection of the urinary system, more common in women.",
+    "recommendations": [
+      "Trimethoprim-sulfamethoxazole or nitrofurantoin",
+      "Increased fluid intake",
+      "Cranberry supplements"
+    ]
+  },
+  "Kidney Stones": {
+    "severity": "severe",
+    "precautions": [
+      "Drink plenty of water",
+      "Pain management",
+      "Medical evaluation for large stones"
+    ],
+    "explanation": "Hard deposits made of minerals and salts that form inside kidneys.",
+    "recommendations": [
+      "Pain management",
+      "Increased fluid intake",
+      "Lithotripsy for large stones",
+      "Low-oxalate diet"
+    ]
+  },
+  "Chronic Kidney Disease": {
+    "severity": "severe",
+    "precautions": [
+      "Control blood pressure and diabetes",
+      "Low-protein diet",
+      "Avoid NSAIDs"
+    ],
+    "explanation": "Gradual loss of kidney function over months or years.",
+    "recommendations": [
+      "ACE inhibitors",
+      "Dialysis when needed",
+      "Low-protein diet",
+      "Regular eGFR monitoring"
+    ]
+  },
+  "Conjunctivitis": {
+    "severity": "mild",
+    "precautions": [
+      "Wash hands frequently",
+      "Don't touch eyes",
+      "Don't share towels or pillowcases"
+    ],
+    "explanation": "Inflammation of the conjunctiva \u2014 the clear tissue covering the white part of the eye.",
+    "recommendations": [
+      "Antibiotic eye drops if bacterial",
+      "Antihistamine drops if allergic",
+      "Cold compress"
+    ]
+  },
+  "Glaucoma": {
+    "severity": "severe",
+    "precautions": [
+      "Regular eye pressure checks",
+      "Take eye drops as prescribed",
+      "Annual eye exams"
+    ],
+    "explanation": "Group of eye conditions damaging the optic nerve, often from increased eye pressure.",
+    "recommendations": [
+      "Eye pressure-lowering drops",
+      "Laser therapy",
+      "Surgery if medication fails"
+    ]
+  },
+  "Cataracts": {
+    "severity": "moderate",
+    "precautions": [
+      "Wear UV-protective sunglasses",
+      "Regular eye exams",
+      "Adequate lighting"
+    ],
+    "explanation": "Clouding of the normally clear lens of the eye.",
+    "recommendations": [
+      "Surgical lens replacement",
+      "Strong eyeglass prescription initially",
+      "UV protection"
+    ]
+  },
+  "Anemia": {
+    "severity": "moderate",
+    "precautions": [
+      "Iron-rich diet",
+      "Take iron supplements with vitamin C",
+      "Avoid coffee/tea with meals"
+    ],
+    "explanation": "Condition where lack of healthy red blood cells reduces oxygen delivery to tissues.",
+    "recommendations": [
+      "Iron supplements",
+      "B12 injections if pernicious anemia",
+      "Treat underlying cause"
+    ]
+  },
+  "Dehydration": {
+    "severity": "moderate",
+    "precautions": [
+      "Drink water or ORS immediately",
+      "Avoid caffeine and alcohol",
+      "Cool environment"
+    ],
+    "explanation": "Occurs when body uses or loses more fluids than it takes in.",
+    "recommendations": [
+      "ORS fluids",
+      "IV fluids if severe",
+      "Gradual rehydration",
+      "Electrolyte drinks"
+    ]
+  },
+  "Obesity": {
+    "severity": "moderate",
+    "precautions": [
+      "Caloric deficit diet",
+      "Regular physical activity",
+      "Behavioral counseling"
+    ],
+    "explanation": "Complex disease involving excessive body fat that increases health risk.",
+    "recommendations": [
+      "Structured diet plan",
+      "Exercise program",
+      "Behavioral therapy",
+      "Bariatric surgery if severe"
+    ]
+  },
+  "Sepsis": {
+    "severity": "severe",
+    "precautions": [
+      "EMERGENCY \u2014 call 911 immediately",
+      "IV antibiotics must be started immediately"
+    ],
+    "explanation": "Life-threatening organ dysfunction caused by dysregulated response to infection.",
+    "recommendations": [
+      "Immediate IV antibiotics",
+      "ICU care",
+      "Vasopressors if in shock",
+      "Source control"
+    ]
+  },
+  "Hypothermia": {
+    "severity": "severe",
+    "precautions": [
+      "EMERGENCY \u2014 warm patient immediately",
+      "Remove wet clothing",
+      "Warm blankets"
+    ],
+    "explanation": "Dangerous drop in body temperature below 35\u00b0C (95\u00b0F).",
+    "recommendations": [
+      "Gradual rewarming",
+      "Warm IV fluids",
+      "Cardiac monitoring",
+      "Warm humidified oxygen"
+    ]
+  },
+  "Heat Stroke": {
+    "severity": "severe",
+    "precautions": [
+      "EMERGENCY \u2014 cool immediately",
+      "Move to cool environment",
+      "Call 911"
+    ],
+    "explanation": "Core body temperature rises above 40\u00b0C (104\u00b0F) due to heat exposure.",
+    "recommendations": [
+      "Rapid cooling with ice packs",
+      "IV fluids",
+      "ICU monitoring"
+    ]
+  },
+  "Lupus": {
+    "severity": "severe",
+    "precautions": [
+      "Avoid sun exposure",
+      "Take hydroxychloroquine as prescribed",
+      "Regular kidney monitoring"
+    ],
+    "explanation": "Autoimmune disease where immune system attacks the body's own tissues.",
+    "recommendations": [
+      "Hydroxychloroquine",
+      "Corticosteroids",
+      "Immunosuppressants",
+      "Sun protection"
+    ]
+  },
+  "Sleep Apnea": {
+    "severity": "moderate",
+    "precautions": [
+      "CPAP therapy",
+      "Sleep on side",
+      "Weight loss if obese"
+    ],
+    "explanation": "Disorder causing breathing repeatedly stops and starts during sleep.",
+    "recommendations": [
+      "CPAP machine",
+      "Weight loss",
+      "Positional therapy",
+      "Avoid alcohol before bed"
+    ]
+  },
+  "Anaphylaxis": {
+    "severity": "severe",
+    "precautions": [
+      "EMERGENCY \u2014 administer epinephrine immediately",
+      "Call 911",
+      "Lie down with legs elevated"
+    ],
+    "explanation": "Severe, life-threatening allergic reaction requiring immediate emergency treatment.",
+    "recommendations": [
+      "Epinephrine (EpiPen)",
+      "Antihistamines after epinephrine",
+      "Allergen avoidance"
+    ]
+  }
+}
