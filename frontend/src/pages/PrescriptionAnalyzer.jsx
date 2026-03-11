@@ -355,11 +355,11 @@ export default function PrescriptionAnalyzer() {
       if (isPdf) {
         // PDF: send as file upload
         const form = new FormData(); form.append("file", file);
-        res = await fetch("/api/prescription/analyze", { method: "POST", headers, body: form });
+        res = await fetch("https://aimedscan-z3ra.onrender.com/api/prescription/analyze", { method: "POST", headers, body: form });
       } else {
         // Image: send directly to GPT-4 Vision — skip Tesseract entirely
         const form = new FormData(); form.append("file", file);
-        res = await fetch("/api/prescription/analyze", { method: "POST", headers, body: form });
+        res = await fetch("https://aimedscan-z3ra.onrender.com/api/prescription/analyze", { method: "POST", headers, body: form });
         setPhase("analyzing");
       }
 
