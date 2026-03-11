@@ -1,0 +1,173 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   bodymap.css  —  SymptomBodyMap component styles
+   PLACEMENT: frontend/src/styles/bodymap.css
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.bm-wrapper {
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border-light, #e0e0e0);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.bm-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-light, #e0e0e0);
+}
+
+.bm-icon { font-size: 1.5rem; }
+
+.bm-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark, #1a1a1a);
+}
+
+.bm-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-muted, #999);
+  margin-top: 2px;
+}
+
+/* Layout */
+.bm-layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Figure */
+.bm-figure-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  width: 160px;
+}
+
+.bm-svg {
+  width: 140px;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+}
+
+/* SVG regions */
+.bm-region {
+  cursor: pointer;
+  stroke-width: 2;
+  fill: transparent;
+  transition: fill 0.2s ease, stroke-width 0.2s ease;
+}
+
+.bm-region:hover,
+.bm-region:focus {
+  stroke-width: 2.5;
+  outline: none;
+}
+
+.bm-region--active {
+  stroke-width: 3;
+}
+
+.bm-label {
+  pointer-events: none;
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Skin button */
+.bm-skin-btn {
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 2px solid;
+  border-radius: 20px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.bm-skin-btn:hover { opacity: 0.85; }
+
+/* Panel */
+.bm-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.bm-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+  text-align: center;
+  color: var(--text-muted, #999);
+  font-size: 0.85rem;
+  border: 1.5px dashed var(--border-light, #e0e0e0);
+  border-radius: 12px;
+  height: 180px;
+}
+
+.bm-empty-icon { font-size: 2rem; margin-bottom: 8px; }
+
+/* Region panel */
+.bm-region-panel {
+  animation: bmSlideIn 0.2s ease;
+}
+
+@keyframes bmSlideIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bm-region-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.bm-symptom-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bm-symptom-pill {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border: 1.5px solid;
+  border-radius: 20px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.bm-symptom-pill:hover:not(:disabled) {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.bm-symptom-pill--added {
+  background: #e6f4ea !important;
+  border-color: #4caf50 !important;
+  color: #2e7d32 !important;
+  cursor: default;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .bm-layout { flex-direction: column; align-items: center; }
+  .bm-figure-wrap { width: 100%; align-items: center; }
+  .bm-panel { width: 100%; }
+}

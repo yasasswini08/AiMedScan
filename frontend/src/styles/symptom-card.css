@@ -1,0 +1,177 @@
+/* ─── Symptom Card Styling ───────────────────────────────────────────────── */
+
+.symptom-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: cardEnter 0.6s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Severity-based styling */
+.symptom-card.symptom-card-mild {
+  border-left: 4px solid #2ecc71;
+  --severity-color: #2ecc71;
+  --severity-light: rgba(46, 204, 113, 0.05);
+}
+
+.symptom-card.symptom-card-moderate {
+  border-left: 4px solid #f39c12;
+  --severity-color: #f39c12;
+  --severity-light: rgba(243, 156, 18, 0.05);
+}
+
+.symptom-card.symptom-card-severe {
+  border-left: 4px solid #e74c3c;
+  --severity-color: #e74c3c;
+  --severity-light: rgba(231, 76, 60, 0.05);
+}
+
+/* Hover effect */
+.symptom-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Card entrance animation */
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Header */
+.symptom-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.symptom-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1a1a1a;
+  flex: 1;
+}
+
+.symptom-severity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  background: var(--severity-light);
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Progress Ring Container */
+.symptom-card-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+}
+
+/* Confidence Label */
+.symptom-card-confidence {
+  text-align: center;
+}
+
+.confidence-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Precautions Section */
+.symptom-card-precautions {
+  background: var(--severity-light);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.precautions-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+  margin: 0 0 8px 0;
+}
+
+.precautions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.precaution-item {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+  padding-left: 20px;
+  position: relative;
+}
+
+.precaution-item::before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  color: var(--severity-color);
+  font-weight: bold;
+}
+
+.precaution-more {
+  font-size: 0.8rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .symptom-card {
+    padding: 20px;
+  }
+
+  .symptom-card-title {
+    font-size: 1.1rem;
+  }
+
+  .symptom-card-progress {
+    padding: 12px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .symptom-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .symptom-card-title {
+    font-size: 1rem;
+  }
+
+  .precaution-item {
+    font-size: 0.8rem;
+  }
+}

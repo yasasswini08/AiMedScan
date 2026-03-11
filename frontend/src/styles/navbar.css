@@ -1,0 +1,269 @@
+/* ─── Navbar ─────────────────────────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--navbar-h);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(153,205,216,0.25);
+  z-index: 500;
+  box-shadow: 0 2px 16px rgba(153,205,216,0.12);
+}
+
+.navbar-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.navbar-logo-icon {
+  width: 42px;
+  height: 42px;
+ background: linear-gradient(
+  155deg,
+  var(--teal) 0%,
+  #7fc4d0 40%,
+  #5fb4c2 100%
+);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ box-shadow:
+  0 4px 16px rgba(153,205,216,0.45),
+  0 1px 4px rgba(153,205,216,0.3),
+  inset 0 1px 0 rgba(255,255,255,0.22);
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+/* Top gloss shine */
+.navbar-logo-icon::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 52%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.16) 0%, transparent 100%);
+  border-radius: 12px 12px 0 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.navbar-logo-icon svg {
+  position: relative;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.18));
+}
+.navbar-logo:hover .navbar-logo-icon {
+  transform: scale(1.08);
+  box-shadow:
+  0 8px 26px rgba(153,205,216,0.55),
+  0 2px 8px rgba(153,205,216,0.35),
+  inset 0 1px 0 rgba(255,255,255,0.22);
+}
+.navbar-logo-text {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+.navbar-logo-text span { color: var(--teal-dark); }
+
+/* Nav links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(153,205,216,0.1);
+  border: 1px solid rgba(153,205,216,0.2);
+  border-radius: var(--radius-full);
+  padding: 4px;
+}
+.nav-link {
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.6); }
+.nav-link.active {
+  background: var(--bg-card);
+  color: var(--teal-dark);
+  font-weight: 600;
+  box-shadow: var(--shadow-xs);
+}
+
+/* Right side actions */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.navbar-avatar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--mint);
+  border: 1.5px solid var(--mint-dark);
+  border-radius: var(--radius-full);
+  padding: 5px 14px 5px 5px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.navbar-avatar:hover { border-color: var(--teal); background: var(--teal-light); }
+.avatar-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: white;
+  flex-shrink: 0;
+}
+.avatar-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Mobile toggle */
+.navbar-mobile-toggle {
+  display: none;
+  padding: 8px;
+  background: var(--mint);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Dashboard button in navbar */
+.navbar-dashboard-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Logout icon button */
+.navbar-logout-btn {
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+}
+.navbar-logout-btn:hover {
+  color: var(--severe-text);
+  border-color: var(--blush-dark);
+  background: var(--severe-bg);
+  border-radius: var(--radius-md);
+}
+  .navbar-links { display: none; }
+  .navbar-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: var(--navbar-h);
+    left: 0; right: 0;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    padding: 12px;
+    box-shadow: var(--shadow-md);
+  }
+  .navbar-mobile-toggle { display: flex; }
+  .avatar-name { display: none; }
+
+/* ── Center nav pills (Symptom Check / New Analysis) ─────────── */
+.navbar-center-pills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(153,205,216,0.1);
+  border: 1px solid rgba(153,205,216,0.2);
+  border-radius: 999px;
+  padding: 4px;
+}
+
+.navbar-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 0.855rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.navbar-pill:hover {
+  background: rgba(255,255,255,0.7);
+  color: var(--teal-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(153,205,216,0.2);
+}
+.navbar-pill--active {
+  background: var(--bg-card);
+  color: var(--teal-dark);
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* New Analysis pill — slightly accented */
+.navbar-pill--new {
+  color: var(--teal-dark);
+}
+.navbar-pill--new:hover {
+  background: linear-gradient(135deg, rgba(153,205,216,0.2), rgba(207,219,196,0.25));
+  color: var(--forest-dark);
+  box-shadow: 0 2px 10px rgba(153,205,216,0.25);
+}
+.navbar-pill--new svg {
+  transition: transform 0.35s ease;
+}
+.navbar-pill--new:hover svg {
+  transform: rotate(180deg);
+}
+
+/* Hide on mobile — collapse to icons only */
+@media (max-width: 680px) {
+  .navbar-center-pills span { display: none; }
+  .navbar-pill { padding: 8px 10px; }
+  .avatar-name { display: none; }
+}
+@media (max-width: 420px) {
+  .navbar-center-pills { gap: 2px; padding: 3px; }
+}

@@ -1,0 +1,163 @@
+/* ─── Prediction Card Component ──────────────────────────────────────────── */
+
+.prediction-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Severity-based border accent */
+.prediction-card.prediction-card-mild {
+  border-left: 4px solid #2e7d54;
+}
+
+.prediction-card.prediction-card-moderate {
+  border-left: 4px solid #9a6200;
+}
+
+.prediction-card.prediction-card-severe {
+  border-left: 4px solid #c0392b;
+}
+
+/* Circular Progress Widget Section */
+.prediction-card-circular {
+  padding: 20px;
+  background: white;
+}
+
+/* Details Section */
+.prediction-card-details {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Medical Note */
+.prediction-medical-note {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  background: rgba(46, 125, 84, 0.05);
+  border-radius: 12px;
+  border-left: 3px solid #2e7d54;
+}
+
+.prediction-card.prediction-card-moderate .prediction-medical-note {
+  background: rgba(154, 98, 0, 0.05);
+  border-left-color: #9a6200;
+}
+
+.prediction-card.prediction-card-severe .prediction-medical-note {
+  background: rgba(192, 57, 43, 0.05);
+  border-left-color: #c0392b;
+}
+
+.prediction-medical-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.prediction-medical-text {
+  font-size: 0.85rem;
+  color: #4a5568;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+/* Precautions Section */
+.prediction-precautions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prediction-precautions-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #718096;
+}
+
+.prediction-precautions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prediction-precaution-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+.prediction-precaution-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2e7d54;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.prediction-card.prediction-card-moderate .prediction-precaution-dot {
+  background: #9a6200;
+}
+
+.prediction-card.prediction-card-severe .prediction-precaution-dot {
+  background: #c0392b;
+}
+
+/* Empty state */
+.prediction-card:has(.prediction-precautions:empty)
+  .prediction-precautions {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .prediction-card-circular {
+    padding: 16px;
+  }
+
+  .prediction-card-details {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .prediction-medical-note {
+    padding: 12px;
+  }
+
+  .prediction-medical-text {
+    font-size: 0.8rem;
+  }
+
+  .prediction-precaution-item {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prediction-card-circular {
+    padding: 12px;
+  }
+
+  .prediction-card-details {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .prediction-medical-note {
+    padding: 10px;
+  }
+}

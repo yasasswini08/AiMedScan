@@ -1,0 +1,214 @@
+/* ─── Hospital Map Container ─────────────────────────────────────────────── */
+
+.hospital-map-container {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+/* Header */
+.hospital-map-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: linear-gradient(135deg, rgba(28, 167, 168, 0.05), rgba(46, 204, 113, 0.05));
+}
+
+.hospital-map-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hospital-icon {
+  font-size: 1.3rem;
+}
+
+/* Map Placeholder */
+.hospital-map-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #1CA7A8 0%, #2ecc71 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hospital-map-placeholder::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.map-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+.map-emoji {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.map-text {
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+}
+
+.map-subtext {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Hospital List */
+.hospital-list {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hospital-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hospital-item:hover {
+  background: rgba(28, 167, 168, 0.08);
+}
+
+.hospital-item-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(46, 204, 113, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hospital-pin {
+  font-size: 1.2rem;
+}
+
+.hospital-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.hospital-name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hospital-distance {
+  margin: 2px 0 0 0;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.hospital-item-arrow {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  color: #1CA7A8;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hospital-item:hover .hospital-item-arrow {
+  opacity: 1;
+}
+
+/* Emergency Button */
+.emergency-button {
+  margin: 12px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.emergency-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.emergency-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hospital-map-container {
+    width: 100%;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hospital-map-placeholder {
+    height: 180px;
+  }
+
+  .hospital-item {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .hospital-name {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hospital-map-placeholder {
+    height: 150px;
+  }
+
+  .map-emoji {
+    font-size: 2rem;
+  }
+
+  .hospital-item-icon {
+    width: 36px;
+    height: 36px;
+  }
+}

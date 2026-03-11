@@ -1,0 +1,293 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   results-extended.css  —  New feature styles for Results.jsx
+   Extends (does NOT override) results.css
+   PLACEMENT: frontend/src/styles/results-extended.css
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Card entrance animation ─────────────────────────────────────────────────── */
+.rx-card-animate {
+  animation: rxCardSlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rxCardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Button hover effects ────────────────────────────────────────────────────── */
+.rx-btn-hover {
+  transition: all 0.22s ease !important;
+}
+.rx-btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(28,167,168,0.25);
+}
+
+/* ── Emergency Banner ────────────────────────────────────────────────────────── */
+.rx-emergency-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
+  border: 2px solid #f44336;
+  border-radius: 14px;
+  padding: 18px 20px;
+  animation: rxEmergencyPulse 2s ease-in-out infinite;
+}
+
+@keyframes rxEmergencyPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(244,67,54,0.2); }
+  50%       { box-shadow: 0 0 0 6px rgba(244,67,54,0); }
+}
+
+.rx-emergency-icon { font-size: 2rem; flex-shrink: 0; margin-top: 2px; }
+
+.rx-emergency-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #c62828;
+  margin-bottom: 6px;
+}
+
+.rx-emergency-content p {
+  font-size: 0.88rem;
+  color: #555;
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+
+.rx-emergency-action {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #c62828 !important;
+}
+
+/* ── Doctor badge ────────────────────────────────────────────────────────────── */
+.rx-doctor-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: linear-gradient(135deg, #e0f2f1, #f0fffe);
+  border: 1px solid #b2dfdb;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 12px;
+  animation: rxFadeIn 0.35s ease;
+}
+
+@keyframes rxFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.rx-doctor-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+
+.rx-doctor-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #00796b;
+  margin-bottom: 2px;
+}
+
+.rx-doctor-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #00695c;
+}
+
+.rx-doctor-note {
+  font-size: 0.78rem;
+  color: #555;
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+/* ── Expandable sections (medicines / remedies) ──────────────────────────────── */
+.rx-section {
+  margin-top: 10px;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 10px;
+}
+
+.rx-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #333;
+  padding: 4px 0;
+  transition: color 0.15s;
+}
+
+.rx-toggle-btn:hover { color: var(--primary-color, #1CA7A8); }
+
+.rx-chevron {
+  display: inline-block;
+  font-size: 1rem;
+  color: #999;
+  transition: transform 0.2s ease;
+  line-height: 1;
+}
+.rx-chevron--open { transform: rotate(90deg); }
+
+.rx-section-content {
+  margin-top: 8px;
+  animation: rxSectionOpen 0.22s ease;
+}
+
+@keyframes rxSectionOpen {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Medicines list */
+.rx-medicines-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rx-medicine-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 8px 12px;
+  border-left: 3px solid var(--primary-color, #1CA7A8);
+}
+
+.rx-medicine-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.rx-medicine-purpose {
+  font-size: 0.78rem;
+  color: #666;
+}
+
+.rx-age-warning {
+  font-size: 0.75rem;
+  color: #e65100;
+  background: #fff3e0;
+  border-radius: 4px;
+  padding: 3px 7px;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+/* Remedies list */
+.rx-remedies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rx-remedy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.rx-remedy-dot {
+  color: #4caf50;
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Follow-Up Questions ─────────────────────────────────────────────────────── */
+.rx-followup-section {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 20px 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.rx-followup-intro {
+  font-size: 0.88rem;
+  color: #666;
+  margin: 0 0 16px;
+}
+
+.rx-followup-card {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.rx-followup-question {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 10px;
+}
+
+.rx-followup-answers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rx-followup-ans-btn {
+  padding: 6px 14px;
+  border: 1.5px solid #d0d7de;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.rx-followup-ans-btn:hover { border-color: var(--primary-color, #1CA7A8); color: var(--primary-color, #1CA7A8); }
+
+.rx-followup-ans-btn--selected {
+  background: var(--primary-color, #1CA7A8);
+  border-color: var(--primary-color, #1CA7A8);
+  color: #fff;
+}
+
+.rx-followup-submit {
+  padding: 10px 22px;
+  background: linear-gradient(135deg, var(--primary-color, #1CA7A8), var(--primary-dark, #168a8b));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 4px;
+}
+
+.rx-followup-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.rx-followup-submit:not(:disabled):hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(28,167,168,0.3); }
+
+.rx-followup-done {
+  font-size: 0.88rem;
+  color: #2e7d32;
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  border-radius: 8px;
+  padding: 10px 16px;
+}

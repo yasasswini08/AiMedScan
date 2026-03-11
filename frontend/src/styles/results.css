@@ -1,0 +1,1079 @@
+/* ╔════════════════════════════════════════════════════════════════════════
+   ║ PROFESSIONAL MEDICAL DASHBOARD - RESULTS PAGE
+   ║ Clean, modern healthcare UI with smooth animations
+   ╚════════════════════════════════════════════════════════════════════════ */
+
+/* Color Palette */
+:root {
+  --primary-color: #1CA7A8;
+  --primary-dark: #168a8b;
+  --primary-light: #e0f2f1;
+  --success: #4caf50;
+  --warning: #ff9800;
+  --danger: #f44336;
+  --text-dark: #1a1a1a;
+  --text-light: #666;
+  --text-muted: #999;
+  --bg-light: #f8f9fa;
+  --bg-white: #ffffff;
+  --border-light: #e0e0e0;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LAYOUT & CONTAINER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.results-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%);
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.results-header {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.header-content h1 {
+  margin: 30px 0 4px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.header-content .timestamp {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MAIN CONTENT - 60/40 LAYOUT
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.results-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 32px;
+  align-items: start;
+}
+
+.results-left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.results-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SECTION STYLING
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.section-title {
+  margin: 0 0 20px 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), transparent);
+  border-radius: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PREDICTIONS SECTION - 2x2 GRID
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.disease-card {
+  background: var(--bg-white);
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid rgba(28, 167, 168, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: slideUp 0.5s ease-out forwards;
+  transform-origin: center bottom;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.disease-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.disease-card.disease-card-mild {
+  border-left: 4px solid var(--success);
+}
+
+.disease-card.disease-card-moderate {
+  border-left: 4px solid var(--warning);
+}
+
+.disease-card.disease-card-severe {
+  border-left: 4px solid var(--danger);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  flex: 1;
+}
+
+.severity-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--primary-light);
+  color: var(--primary-color);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.card-progress {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  height: 140px;
+}
+
+.progress-ring {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-90deg);
+}
+
+.progress-ring .progress-bg {
+  fill: none;
+  stroke: rgba(28, 167, 168, 0.1);
+  stroke-width: 8;
+}
+
+.progress-ring .progress-fill {
+  fill: none;
+  stroke: var(--primary-color);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 2px 4px rgba(28, 167, 168, 0.3));
+}
+
+.progress-text {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.card-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SUMMARY SECTION
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.summary-card {
+  background: var(--bg-white);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.summary-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ACTION BUTTONS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(28, 167, 168, 0.3);
+}
+
+.btn-secondary {
+  background: var(--bg-white);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   DISCLAIMER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.disclaimer {
+  background: rgba(255, 193, 7, 0.08);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-left: 4px solid #ffc107;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.disclaimer p {
+  margin: 0;
+}
+
+.disclaimer strong {
+  color: var(--text-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HOSPITALS SIDEBAR
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.hospitals-sidebar {
+  background: var(--bg-white);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 20px;
+}
+
+.hospitals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.hospital-card {
+  padding: 16px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.hospital-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 2px 8px rgba(28, 167, 168, 0.1);
+}
+
+.hospital-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+.hospital-header h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.distance {
+  background: var(--primary-light);
+  color: var(--primary-color);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hospital-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+}
+
+.hospital-type,
+.hospital-address {
+  margin: 0;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+.hospital-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stars {
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+
+.rating-value {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.map-btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--primary-light);
+  color: var(--primary-color);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.map-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MAP CONTAINER
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.map-container {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  margin-top: 16px;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-light), #e3f2fd);
+  gap: 12px;
+  color: var(--text-light);
+}
+
+.map-icon {
+  width: 48px;
+  height: 48px;
+  fill: var(--primary-color);
+  opacity: 0.7;
+}
+
+.map-placeholder p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.map-placeholder small {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* TABLET (768px - 1024px) */
+@media (max-width: 1024px) {
+  .results-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hospitals-sidebar {
+    position: relative;
+    top: auto;
+  }
+
+  .header-content h1 {
+    font-size: 2rem;
+  }
+}
+
+/* TABLET SMALLER (600px - 768px) */
+@media (max-width: 768px) {
+  .results-container {
+    padding: 24px 16px;
+  }
+
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+
+  .header-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .predictions-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+}
+
+/* MOBILE (< 600px) */
+@media (max-width: 600px) {
+  .results-container {
+    padding: 16px 12px;
+  }
+
+  .back-btn {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .header-content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+  }
+
+  .header-content .timestamp {
+    font-size: 0.85rem;
+  }
+
+  .results-left,
+  .results-right {
+    gap: 24px;
+  }
+
+  .disease-card {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .card-progress {
+    height: 120px;
+  }
+
+  .progress-text {
+    font-size: 1.6rem;
+  }
+
+  .card-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .summary-card {
+    padding: 16px;
+  }
+
+  .summary-item {
+    padding: 12px 0;
+  }
+
+  .summary-label {
+    font-size: 0.8rem;
+  }
+
+  .summary-value {
+    font-size: 0.95rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  .disclaimer {
+    font-size: 0.8rem;
+    padding: 12px;
+  }
+
+  .hospitals-sidebar {
+    padding: 16px;
+  }
+
+  .hospital-card {
+    padding: 12px;
+  }
+
+  .hospital-header h4 {
+    font-size: 0.9rem;
+  }
+
+  .distance {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+
+  .hospital-details {
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+
+  .map-container {
+    height: 240px;
+    margin-top: 12px;
+  }
+
+  .map-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* SMALL MOBILE (< 400px) */
+@media (max-width: 400px) {
+  .header-content h1 {
+    font-size: 1.3rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .disease-card {
+    padding: 16px;
+  }
+
+  .card-description {
+    font-size: 0.8rem;
+  }
+
+  .action-buttons {
+    gap: 8px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ── Map locate / loading states ─────────────────────────────── */
+.map-locate-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 28px 16px;
+  gap: 10px;
+}
+.map-locate-icon { font-size: 2.5rem; }
+.map-locate-title { font-size: 1rem; font-weight: 600; color: var(--text-dark); margin: 0; }
+.map-locate-sub   { font-size: 0.83rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+.map-error-msg    { font-size: 0.82rem; color: #e74c3c; margin: 0; }
+
+.map-locate-btn {
+  margin-top: 8px;
+  padding: 10px 24px;
+  background: var(--primary-color, #1CA7A8);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.map-locate-btn:hover { background: #178f90; }
+
+.map-loading-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 32px 16px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.map-spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border-light, #eee);
+  border-top-color: var(--primary-color, #1CA7A8);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Hospital card selected state ────────────────────────────── */
+.hospital-card { cursor: pointer; transition: all 0.2s ease; }
+.hospital-card.selected {
+  border-color: var(--primary-color, #1CA7A8) !important;
+  background: rgba(28, 167, 168, 0.04);
+  box-shadow: 0 0 0 2px rgba(28,167,168,0.2);
+}
+
+/* ── Re-search button ─────────────────────────────────────────── */
+.map-relocate-btn {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 8px;
+  background: transparent;
+  border: 1px solid var(--border-light, #eee);
+  border-radius: 8px;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.map-relocate-btn:hover { border-color: var(--primary-color,#1CA7A8); color: var(--primary-color,#1CA7A8); }
+/* ╔══════════════════════════════════════════════════════════════
+   ║ EXTENDED RESULTS UI STYLES
+   ╚══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────
+   DOCTOR RECOMMENDATION CARD
+───────────────────────────────────────── */
+
+.rx-doctor-badge{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  padding:14px;
+  margin-top:16px;
+  border-radius:10px;
+  background:#eef7f7;
+  border:1px solid rgba(28,167,168,.15);
+  font-size:.9rem;
+  line-height:1.4;
+}
+
+.rx-doctor-badge span{
+  font-size:1.2rem;
+}
+
+.rx-doctor-badge div{
+  display:flex;
+  flex-direction:column;
+}
+
+.rx-doctor-badge div div:first-child{
+  font-weight:700;
+  color:#1CA7A8;
+}
+
+.rx-doctor-badge div div:nth-child(2){
+  font-weight:600;
+  color:#333;
+}
+
+.rx-doctor-badge div div:nth-child(3){
+  font-size:.85rem;
+  color:#666;
+}
+
+/* ─────────────────────────────────────────
+   COLLAPSIBLE SECTIONS
+───────────────────────────────────────── */
+
+.rx-section{
+  margin-top:18px;
+  border-top:1px solid rgba(0,0,0,.06);
+  padding-top:12px;
+}
+
+.rx-section button{
+  width:100%;
+  border:none;
+  background:none;
+  font-size:.9rem;
+  font-weight:600;
+  display:flex;
+  justify-content:flex-start;
+  gap:8px;
+  cursor:pointer;
+  color:#444;
+  padding:6px 0;
+  transition:color .2s;
+}
+
+.rx-section button:hover{
+  color:#1CA7A8;
+}
+
+/* ─────────────────────────────────────────
+   SECTION CONTENT
+───────────────────────────────────────── */
+
+.rx-section-content{
+  margin-top:10px;
+  animation:accordionOpen .35s ease;
+}
+
+@keyframes accordionOpen{
+  from{
+    opacity:0;
+    transform:translateY(-6px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ─────────────────────────────────────────
+   MEDICINE LIST
+───────────────────────────────────────── */
+
+.rx-medicine-item{
+  padding:8px 0;
+  border-bottom:1px solid rgba(0,0,0,.04);
+}
+
+.rx-medicine-item:last-child{
+  border-bottom:none;
+}
+
+.rx-medicine-item strong{
+  font-size:.9rem;
+  color:#222;
+}
+
+.rx-medicine-item p{
+  font-size:.85rem;
+  color:#666;
+  margin:3px 0 0 0;
+}
+
+/* Hover */
+
+.rx-medicine-item:hover{
+  background:rgba(28,167,168,.05);
+  padding-left:6px;
+  border-radius:6px;
+}
+
+/* ─────────────────────────────────────────
+   REMEDIES LIST
+───────────────────────────────────────── */
+
+.rx-remedy-item{
+  font-size:.88rem;
+  color:#555;
+  padding:4px 0;
+  transition:.25s;
+}
+
+.rx-remedy-item:hover{
+  color:#1CA7A8;
+  transform:translateX(4px);
+}
+
+/* ─────────────────────────────────────────
+   PRECAUTIONS & SUGGESTIONS
+───────────────────────────────────────── */
+
+.rx-section h4{
+  margin:10px 0 8px 0;
+  font-size:.95rem;
+  font-weight:700;
+  color:#333;
+}
+
+.rx-section ul{
+  margin:0;
+  padding-left:18px;
+}
+
+.rx-section li{
+  font-size:.87rem;
+  color:#555;
+  line-height:1.5;
+  margin-bottom:4px;
+}
+
+/* ─────────────────────────────────────────
+   CARD ANIMATION
+───────────────────────────────────────── */
+
+.rx-card-animate{
+  animation:cardSlide .45s ease forwards;
+}
+
+@keyframes cardSlide{
+  from{
+    opacity:0;
+    transform:translateY(12px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ─────────────────────────────────────────
+   BUTTON INTERACTIONS
+───────────────────────────────────────── */
+
+.rx-btn-hover{
+  transition:all .25s ease;
+}
+
+.rx-btn-hover:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(28,167,168,.3);
+}
+
+/* ─────────────────────────────────────────
+   PROGRESS RING ANIMATION
+───────────────────────────────────────── */
+
+.progress-ring .progress-fill{
+  transition:stroke-dasharray 1.4s cubic-bezier(.34,1.56,.64,1);
+}
+
+/* ─────────────────────────────────────────
+   HOSPITAL MAP STYLING
+───────────────────────────────────────── */
+
+.map-locate-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:10px;
+  padding:28px 16px;
+}
+
+.map-locate-icon{
+  font-size:2rem;
+}
+
+.map-locate-title{
+  font-size:.95rem;
+  font-weight:600;
+}
+
+.map-locate-sub{
+  font-size:.85rem;
+  color:#777;
+}
+
+.map-locate-btn{
+  margin-top:10px;
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  background:#1CA7A8;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.map-locate-btn:hover{
+  background:#178f90;
+  transform:translateY(-1px);
+}
+
+/* ─────────────────────────────────────────
+   MAP LOADING
+───────────────────────────────────────── */
+
+.map-loading-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  padding:30px;
+  color:#777;
+}
+
+.map-spinner{
+  width:36px;
+  height:36px;
+  border:3px solid #eee;
+  border-top:3px solid #1CA7A8;
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/* ─────────────────────────────────────────
+   HOSPITAL CARD SELECTED
+───────────────────────────────────────── */
+
+.hospital-card{
+  cursor:pointer;
+  transition:.25s;
+}
+
+.hospital-card:hover{
+  transform:scale(1.02);
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.hospital-card.selected{
+  border-color:#1CA7A8 !important;
+  background:rgba(28,167,168,.05);
+}
+
+/* ─────────────────────────────────────────
+   SEARCH AGAIN BUTTON
+───────────────────────────────────────── */
+
+.map-relocate-btn{
+  width:100%;
+  margin-top:12px;
+  padding:8px;
+  border-radius:8px;
+  border:1px solid #eee;
+  background:white;
+  font-size:.85rem;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.map-relocate-btn:hover{
+  border-color:#1CA7A8;
+  color:#1CA7A8;
+}

@@ -1,0 +1,156 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   checker-additions.css
+   Additional styles for new SymptomChecker features.
+   Append to checker-enhanced.css OR import separately.
+   PLACEMENT: frontend/src/styles/checker-additions.css
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Body map toggle button ──────────────────────────────────────────────────── */
+.sc-bodymap-wrap {
+  width: 100%;
+}
+
+.sc-bodymap-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 18px;
+  background: #fff;
+  border: 1.5px solid var(--sc-border, #e5e7eb);
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.sc-bodymap-toggle:hover {
+  border-color: #1CA7A8;
+  color: #1CA7A8;
+  box-shadow: 0 2px 8px rgba(28,167,168,0.12);
+}
+
+.sc-bodymap-chevron {
+  font-size: 1.1rem;
+  color: #999;
+  transition: transform 0.22s ease;
+}
+
+.sc-bodymap-chevron--open {
+  transform: rotate(90deg);
+}
+
+.sc-bodymap-panel {
+  margin-top: 10px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* ── Follow-up panel ─────────────────────────────────────────────────────────── */
+.sc-followup-panel {
+  background: #f0fffe;
+  border: 1.5px solid #b2dfdb;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 10px rgba(28,167,168,0.1);
+}
+
+.sc-followup-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #00695c;
+  margin-bottom: 4px;
+}
+
+.sc-followup-sub {
+  font-size: 0.82rem;
+  color: #555;
+  margin: 0 0 14px;
+}
+
+.sc-followup-q {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.sc-followup-q-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 10px;
+}
+
+.sc-followup-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sc-followup-opt {
+  padding: 5px 14px;
+  border: 1.5px solid #d0d7de;
+  border-radius: 20px;
+  background: #f8f9fa;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.sc-followup-opt:hover { border-color: #1CA7A8; color: #1CA7A8; }
+
+.sc-followup-opt--selected {
+  background: #1CA7A8;
+  border-color: #1CA7A8;
+  color: #fff;
+}
+
+.sc-followup-confirm {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #1CA7A8, #168a8b);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 4px;
+}
+
+.sc-followup-confirm:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(28,167,168,0.3);
+}
+
+/* ── Prescription analyzer link ──────────────────────────────────────────────── */
+.sc-prescription-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1.5px dashed #d0d7de;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  width: 100%;
+  font-weight: 500;
+}
+
+.sc-prescription-link:hover {
+  border-color: #1CA7A8;
+  color: #1CA7A8;
+  background: rgba(28,167,168,0.04);
+}

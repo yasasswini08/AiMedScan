@@ -1,0 +1,57 @@
+/**
+ * prescriptionRoutes.js
+ * ══════════════════════════════════════════════════════════════════════════════
+ * Routes for the Prescription Analyzer feature.
+ *
+ * Uses multer (memory storage) to handle multipart file uploads.
+ * The file buffer is forwarded directly to the Python Flask OCR service
+ * via form-data in prescriptionController.js.
+ *
+ * PLACEMENT: backend/routes/prescriptionRoutes.js
+ * ══════════════════════════════════════════════════════════════════════════════
+ */
+const express = require("express");
+const multer  = require("multer");
+const router  = express.Router();
+
+const { analyzePrescription, getMedicineInfo } = require("../controllers/prescriptionController");
+const { protect } = require("../middleware/authMiddleware");
+
+// ── Multer: keep files in memory (no disk writes), max 10 MB ─────────────────
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits:  { fileSize: 10 * 1024 * 1024 },
+  fileFilter: (_req, file, cb) => {
+    const allowed = /jpeg|jpg|png|webp|tiff|heic|heif|pdf/i;
+    const ok = allowed.test(file.mimetype) ||
+               allowed.test((file.originalname || "").split(".").pop());
+    cb(ok ? null : new Error(`Unsupported file type: ${file.mimetype}`), ok);
+  },
+});
+
+// ── Conditional multer middleware (only for multipart requests) ───────────────
+function maybeUpload(req, res, next) {
+  const ct = req.headers["content-type"] || "";
+  if (!ct.includes("multipart/form-data")) return next(); // JSON body — skip multer
+
+  upload.single("file")(req, res, (err) => {
+    if (!err) return next();
+    if (err instanceof multer.MulterError && err.code === "LIMIT_FILE_SIZE")
+      return res.status(400).json({ success: false, message: "File too large. Maximum 10 MB." });
+    return res.status(400).json({ success: false, message: err.message || "Upload error." });
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// POST /api/prescription/analyze
+//   - multipart/form-data { file: image | pdf }
+//   - application/json    { ocrText: string }
+// ─────────────────────────────────────────────────────────────────────────────
+router.post("/analyze", protect, maybeUpload, analyzePrescription);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GET /api/prescription/medicine/:name
+// ─────────────────────────────────────────────────────────────────────────────
+router.get("/medicine/:name", protect, getMedicineInfo);
+
+module.exports = router;
