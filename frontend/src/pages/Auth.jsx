@@ -31,7 +31,11 @@ export default function Auth() {
 
     setLoading(true);
     try {
-      const endpoint = mode === "login" ? "/api/auth/login" : "/api/auth/register";
+      const API = "https://aimedscan-z3ra.onrender.com";
+      const endpoint =
+        mode === "login"
+          ? `${API}/api/auth/login`
+          : `${API}/api/auth/register`;
       const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
