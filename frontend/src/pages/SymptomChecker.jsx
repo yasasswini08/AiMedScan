@@ -254,7 +254,7 @@ export default function SymptomChecker() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/predict/followup", {
+      const res = await fetch("https://aimedscan-z3ra.onrender.com/api/predict/followup", {
         method: "POST",
         headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
         body: JSON.stringify({ symptoms: selected }),
@@ -282,7 +282,7 @@ export default function SymptomChecker() {
     const answersArray = Object.entries(followUpAnswers).map(([questionId, answer]) => ({ questionId, answer }));
 
     try {
-      const res = await fetch("/api/predict", {
+      const res = await fetch("https://aimedscan-z3ra.onrender.com/api/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
         body: JSON.stringify({ symptoms: selected, duration, age, followUpAnswers: answersArray }),
