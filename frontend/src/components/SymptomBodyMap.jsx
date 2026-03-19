@@ -1,12 +1,3 @@
-/**
- * SymptomBodyMap.jsx
- * ─────────────────────────────────────────────────────────────────────────────
- * Visual body region selector.
- * Clicking a region shows related symptoms; clicking a symptom adds it.
- *
- * PLACEMENT: frontend/src/components/SymptomBodyMap.jsx
- * ─────────────────────────────────────────────────────────────────────────────
- */
 import { useState } from "react";
 import "../styles/bodymap.css";
 
