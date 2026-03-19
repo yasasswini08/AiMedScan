@@ -1,30 +1,3 @@
-/**
- * medicineKnowledge.js
- * ─────────────────────────────────────────────────────────────────────────────
- * Comprehensive medicine knowledge base for Prescription Analyzer.
- * Covers 60+ common medicines including antibiotics, analgesics, antihistamines,
- * antidiabetics, cardiac drugs, vitamins, and more.
- *
- * Each entry includes:
- *   genericName    — display name
- *   brandNames     — array of common brands (used for matching)
- *   aliases        — alternate spellings / OCR variants (for fuzzy matching)
- *   category       — drug class label
- *   drugClass      — machine key (analgesic, antibiotic, nsaid, etc.)
- *   purpose        — what it treats
- *   dosage         — general guidance
- *   sideEffects    — array of common side effects
- *   precautions    — array of warnings
- *   completeCourse — boolean: must complete full course
- *   afterFood      — boolean: should be taken after food
- *   avoidAlcohol   — boolean: alcohol interaction
- *   icon           — emoji for UI
- *   interactsWith  — array of drug keys it interacts with
- *
- * PLACEMENT: backend/data/medicineKnowledge.js
- * ─────────────────────────────────────────────────────────────────────────────
- */
-
 const MEDICINE_KNOWLEDGE = {
 
   // ── Analgesics / Antipyretics ──────────────────────────────────────────────
