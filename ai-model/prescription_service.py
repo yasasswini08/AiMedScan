@@ -1,31 +1,3 @@
-"""
-prescription_service.py
-════════════════════════════════════════════════════════════════════════════════
-Prescription Analyzer — OCR Engine + Medicine Knowledge Matcher
-
-This module is imported by app.py and registers a Flask Blueprint.
-
-PLACEMENT : ai-model/prescription_service.py
-
-USAGE in app.py:
-    from prescription_service import prescription_bp
-    app.register_blueprint(prescription_bp)
-
-SYSTEM REQUIREMENTS:
-    pip install pytesseract opencv-python Pillow pdf2image
-
-    Linux:  sudo apt-get install tesseract-ocr poppler-utils
-    macOS:  brew install tesseract poppler
-    Windows: Install Tesseract from https://github.com/UB-Mannheim/tesseract/wiki
-             Install poppler from https://github.com/oschwartz10612/poppler-windows
-
-ENDPOINTS:
-    POST /analyze-prescription   — accepts image or PDF file, returns medicines
-    GET  /medicine-lookup/<name> — look up a specific medicine
-    GET  /prescription-health    — health/capability check
-════════════════════════════════════════════════════════════════════════════════
-"""
-
 import os
 import re
 import json
