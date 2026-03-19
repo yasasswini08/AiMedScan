@@ -1,13 +1,3 @@
-/**
- * medicineDatabase.js
- * ─────────────────────────────────────────────────────────────────────────────
- * Comprehensive medicine knowledge base with drug interaction data.
- * Used by the Prescription Analyzer feature.
- *
- * PLACEMENT: backend/data/medicineDatabase.js
- * ─────────────────────────────────────────────────────────────────────────────
- */
-
 const MEDICINE_DB = {
   // ── Analgesics / Antipyretics ────────────────────────────────────────────
   paracetamol: {
