@@ -1,8 +1,4 @@
-/**
- * App.jsx — AIMedScan
- * Root component with page-state router and context provider.
- * ONLY CHANGE from original: added "prescription" page + its CSS import.
- */
+
 import { useState, useEffect } from "react";
 import { AppContext } from "./context/AppContext";
 import Navbar             from "./components/Navbar";
