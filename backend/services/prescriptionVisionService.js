@@ -1,26 +1,3 @@
-/**
- * prescriptionVisionService.js
- * ─────────────────────────────────────────────────────────────────────────────
- * Google Gemini Vision service for handwritten prescription analysis.
- *
- * Uses Google Gemini 2.5 Flash — FREE tier (no billing required):
- *   • 15 requests per minute
- *   • 1,500 requests per day
- *   • 1 million tokens per minute
- *
- * Get a free API key at: https://aistudio.google.com/app/apikey
- *
- * HOW IT WORKS:
- *   1. Receives a Buffer of the uploaded prescription image
- *   2. Converts it to base64
- *   3. Sends it to Gemini 1.5 Flash with a structured clinical prompt
- *   4. Parses and validates the JSON response
- *   5. Returns structured medicine list: { medicines[], prescriptionType, notes }
- *
- * PLACEMENT: backend/services/prescriptionVisionService.js
- * ─────────────────────────────────────────────────────────────────────────────
- */
-
 const axios = require("axios");
 
 // ─────────────────────────────────────────────────────────────────────────────
