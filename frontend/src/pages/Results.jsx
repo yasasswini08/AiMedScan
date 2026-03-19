@@ -1,17 +1,3 @@
-/**
- * Results.jsx  (UPDATED)
- * ─────────────────────────────────────────────────────────────────────────────
- * Changes:
- *  • Shows TOP 2 predictions only (backend now sends 2)
- *  • DiseaseCard extended with: medicines, remedies, recommended doctor
- *  • Emergency warning banner
- *  • Animated progress rings, card entrance animations
- *  • Follow-up questions section (if backend returns them)
- *  • All new content appended BELOW existing card layout — no redesign
- *
- * PLACEMENT: frontend/src/pages/Results.jsx  (replaces existing file)
- * ─────────────────────────────────────────────────────────────────────────────
- */
 import { useState, useEffect, useRef } from "react";
 import { useApp } from "../context/AppContext";
 import "../styles/results.css";
