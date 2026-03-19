@@ -1,25 +1,3 @@
-/**
- * prescriptionController.js
- * ══════════════════════════════════════════════════════════════════════════════
- * Prescription Analyzer — OpenAI GPT-4o Vision + Local JS Fallback
- *
- * FLOW:
- *
- *  ┌─────────────────────────────────────────────────────────────┐
- *  │  req.file present (multipart image upload)                  │
- *  │    → prescriptionVisionService.analyzeWithVision()          │
- *  │    → GPT-4o Vision reads the image directly                 │
- *  │    → Works on handwritten, Telugu+English, blurry images    │
- *  │    → Returns structured medicines JSON                      │
- *  ├─────────────────────────────────────────────────────────────┤
- *  │  req.body.ocrText present (fallback text input)             │
- *  │    → Local JS text matching against MEDICINE_DB             │
- *  └─────────────────────────────────────────────────────────────┘
- *
- * PLACEMENT: backend/controllers/prescriptionController.js
- * ══════════════════════════════════════════════════════════════════════════════
- */
-
 require("dotenv").config();
 const { analyzeWithVision } = require("../services/prescriptionVisionService");
 
