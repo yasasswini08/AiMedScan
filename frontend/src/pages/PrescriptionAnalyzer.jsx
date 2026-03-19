@@ -1,24 +1,3 @@
-/**
- * PrescriptionAnalyzer.jsx
- * ══════════════════════════════════════════════════════════════════════════════
- * Production-grade Prescription Analyzer page.
- *
- * Features:
- *  ✓ Drag & drop + click-to-upload (image & PDF)
- *  ✓ Client-side OCR via Tesseract.js (CDN) with live progress bar
- *  ✓ Falls back to server-side OCR (file forwarded to Python) if Tesseract fails
- *  ✓ Highlighted OCR text with colour-coded medicine names
- *  ✓ Expandable medicine cards: purpose · dosage · side effects · precautions
- *  ✓ Category colour badges & prescription-only warning
- *  ✓ OCR confidence ring
- *  ✓ Copy OCR text · Download plain-text report
- *  ✓ Animated skeletons during processing
- *  ✓ Full offline fallback (local JS medicine DB)
- *  ✓ Matches existing app design system (DM Serif Display / DM Sans, teal palette)
- *
- * PLACEMENT: frontend/src/pages/PrescriptionAnalyzer.jsx
- * ══════════════════════════════════════════════════════════════════════════════
- */
 import { useState, useRef, useCallback } from "react";
 import { useApp } from "../context/AppContext";
 import "../styles/prescription-analyzer.css";
