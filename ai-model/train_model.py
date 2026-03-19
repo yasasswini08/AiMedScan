@@ -1,18 +1,3 @@
-"""
-AIMedScan — Model Training Script (Best of Both Worlds)
-Trains RandomForest on 100+ disease / 200+ symptom dataset.
-
-Strategy: Keep 600 trees (for accuracy) but add max_depth=15
-  - Original:  600 trees, depth=None  → 669 MB,  91.9% ✅ accuracy, ❌ too big
-  - Optimized: 100 trees, depth=25    → ~40 MB,  89%   ❌ accuracy drop
-  - This file: 600 trees, depth=15    → ~30 MB,  ~91%+ ✅ both!
-
-The size comes from tree DEPTH not tree COUNT.
-Capping depth = same number of trees, each much smaller.
-
-Run: python train_model.py
-"""
-
 import numpy as np
 import pickle
 import gzip
