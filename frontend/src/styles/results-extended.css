@@ -1,9 +1,3 @@
-/* ─────────────────────────────────────────────────────────────────────────────
-   results-extended.css  —  New feature styles for Results.jsx
-   Extends (does NOT override) results.css
-   PLACEMENT: frontend/src/styles/results-extended.css
-   ───────────────────────────────────────────────────────────────────────────── */
-
 /* ── Card entrance animation ─────────────────────────────────────────────────── */
 .rx-card-animate {
   animation: rxCardSlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
