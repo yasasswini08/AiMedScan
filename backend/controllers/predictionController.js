@@ -1,19 +1,3 @@
-/**
- * predictionController.js  (UPDATED)
- * ─────────────────────────────────────────────────────────────────────────────
- * Changes from original:
- *   1. Top-2 predictions only (sorted by probability)
- *   2. Attaches medicines, remedies, recommended doctor (medicalKnowledge.js)
- *   3. Age-based medicine safety filtering
- *   4. Emergency symptom detection
- *   5. Follow-up question generation
- *   6. Follow-up answer resolution endpoint (enriches symptoms before predicting)
- *
- * PLACEMENT: backend/controllers/predictionController.js
- *            (replaces existing file)
- * ─────────────────────────────────────────────────────────────────────────────
- */
-
 const { getPredictionsFromAI }    = require("../services/aiService");
 const PredictionHistory           = require("../models/PredictionHistory");
 const SymptomHistory              = require("../models/SymptomHistory");
