@@ -1,10 +1,3 @@
-"""
-AIMedScan — Python Flask AI Service  (v2)
-100+ diseases | 200+ symptoms | Fuzzy matching | Age & Duration aware
-Run: python app.py
-Requires: python train_model.py first
-"""
-
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import numpy as np
