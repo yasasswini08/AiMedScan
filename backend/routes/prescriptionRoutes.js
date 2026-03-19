@@ -1,15 +1,4 @@
-/**
- * prescriptionRoutes.js
- * ══════════════════════════════════════════════════════════════════════════════
- * Routes for the Prescription Analyzer feature.
- *
- * Uses multer (memory storage) to handle multipart file uploads.
- * The file buffer is forwarded directly to the Python Flask OCR service
- * via form-data in prescriptionController.js.
- *
- * PLACEMENT: backend/routes/prescriptionRoutes.js
- * ══════════════════════════════════════════════════════════════════════════════
- */
+
 const express = require("express");
 const multer  = require("multer");
 const router  = express.Router();
