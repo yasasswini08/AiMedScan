@@ -1,7 +1,4 @@
-/**
- * predictionRoutes.js  (UPDATED)
- * PLACEMENT: backend/routes/predictionRoutes.js  — replaces existing file
- */
+
 const express = require("express");
 const router  = express.Router();
 const { predict, getFollowUp } = require("../controllers/predictionController");
