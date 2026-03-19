@@ -1,18 +1,3 @@
-/**
- * followUpEngine.js
- * ─────────────────────────────────────────────────────────────────────────────
- * AI Follow-Up Question Engine
- * Generates clarifying questions based on entered symptoms to improve
- * prediction accuracy.
- *
- * PLACEMENT: backend/data/followUpEngine.js
- * ─────────────────────────────────────────────────────────────────────────────
- */
-
-// ── Follow-up rules ───────────────────────────────────────────────────────────
-// Each rule defines: which symptoms trigger the question, the question text,
-// and a list of answers that map to additional symptoms for enrichment.
-
 const FOLLOW_UP_RULES = [
   {
     triggers: ["fever", "cough"],
