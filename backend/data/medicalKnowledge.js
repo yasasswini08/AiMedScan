@@ -1,14 +1,3 @@
-/**
- * medicalKnowledge.js
- * ─────────────────────────────────────────────────────────────────────────────
- * Central medical knowledge base.
- * Provides: OTC medicines, home remedies, specialist recommendations, and
- * age-safety filters for every disease the AI model may return.
- *
- * PLACEMENT: backend/data/medicalKnowledge.js
- * ─────────────────────────────────────────────────────────────────────────────
- */
-
 // ── Per-disease knowledge ─────────────────────────────────────────────────────
 const DISEASE_KNOWLEDGE = {
   "Common Cold": {
