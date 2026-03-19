@@ -1,7 +1,4 @@
-/**
- * Navbar.jsx — AIMedScan
- * ONLY CHANGE from original: added "Prescription" nav pill.
- */
+
 import { LayoutDashboard, LogOut, Stethoscope, RefreshCw, FileText } from "lucide-react";
 import { useApp } from "../context/AppContext";
 
