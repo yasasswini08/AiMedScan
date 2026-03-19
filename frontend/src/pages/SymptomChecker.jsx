@@ -1,15 +1,3 @@
-/**
- * SymptomChecker.jsx  (UPDATED)
- * ─────────────────────────────────────────────────────────────────────────────
- * Changes:
- *  • Integrates SymptomBodyMap component (collapsible)
- *  • Shows follow-up questions from /api/predict/followup before final submit
- *  • Passes followUpAnswers to /api/predict
- *  • All existing UI/styling preserved
- *
- * PLACEMENT: frontend/src/pages/SymptomChecker.jsx  (replaces existing file)
- * ─────────────────────────────────────────────────────────────────────────────
- */
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useApp } from "../context/AppContext";
 import { useSpeechRecognition } from "../hooks/useSpeechRecognition";
