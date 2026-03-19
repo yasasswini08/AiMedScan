@@ -1,8 +1,3 @@
-"""
-AIMedScan — Dataset Generator
-Generates synthetic training data for 100+ diseases and 200+ symptoms.
-"""
-
 import numpy as np
 import json
 import random
