@@ -1,10 +1,9 @@
-const axios = require("axios");
+const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime");
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Config
 // ─────────────────────────────────────────────────────────────────────────────
-const GEMINI_MODEL   = "gemini-2.5-flash";   // Free tier — current stable model (1.5 & 2.0 retired)
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+const BEDROCK_MODEL = "anthropic.claude-3-haiku-20240307-v1:0";
 
 // Structured prompt for maximum extraction accuracy on messy handwriting.
 // Returns strict, parseable JSON only.
@@ -48,7 +47,7 @@ If no medicines are legible, return:
 
 /**
  * analyzeWithVision
- * Sends a prescription image Buffer to Gemini Vision and returns structured
+ * Sends a prescription image Buffer to AWS Bedrock Claude and returns structured
  * medicine data.
  *
  * @param {Buffer} imageBuffer  — raw image bytes from multer memory storage
@@ -56,11 +55,13 @@ If no medicines are legible, return:
  * @returns {Promise<Object|null>}  { medicines[], prescriptionType, notes } or null
  */
 async function analyzeWithVision(imageBuffer, mimeType = "image/jpeg") {
-  const apiKey = process.env.GEMINI_API_KEY;
+  const accessKey = process.env.AWS_ACCESS_KEY_ID;
+  const secretKey = process.env.AWS_SECRET_ACCESS_KEY;
+  const region    = process.env.AWS_REGION || "us-east-1";
 
-  if (!apiKey || apiKey.trim() === "" || apiKey === "your_gemini_api_key_here") {
-    console.warn("[vision] GEMINI_API_KEY not set — Vision analysis unavailable.");
-    console.warn("[vision] Get a free key at: https://aistudio.google.com/app/apikey");
+  if (!accessKey || !secretKey) {
+    console.warn("[vision] AWS credentials not set — Vision analysis unavailable.");
+    console.warn("[vision] Add AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY to your environment variables.");
     return null;
   }
 
@@ -76,54 +77,65 @@ async function analyzeWithVision(imageBuffer, mimeType = "image/jpeg") {
   // Convert buffer to base64
   const base64 = imageBuffer.toString("base64");
 
-  console.log(`[vision] Sending ${Math.round(base64.length / 1024)} KB image to ${GEMINI_MODEL} (${safeMime})...`);
+  console.log(`[vision] Sending ${Math.round(base64.length / 1024)} KB image to ${BEDROCK_MODEL} (${safeMime})...`);
 
-  // Build Gemini API payload
-  const payload = {
-    contents: [
-      {
-        parts: [
-          {
-            text: VISION_PROMPT,
-          },
-          {
-            inline_data: {
-              mime_type: safeMime,
-              data:      base64,
-            },
-          },
-        ],
-      },
-    ],
-    generationConfig: {
-      temperature:     0.1,   // Low = deterministic, consistent extraction
-      maxOutputTokens: 4096,  // Increased — 1500 caused JSON truncation
+  // Build AWS Bedrock client
+  const client = new BedrockRuntimeClient({
+    region,
+    credentials: {
+      accessKeyId:     accessKey,
+      secretAccessKey: secretKey,
     },
-  };
+  });
+
+  // Build Claude payload
+  const body = JSON.stringify({
+    anthropic_version: "bedrock-2023-05-31",
+    max_tokens:        4096,
+    temperature:       0.1,
+    messages: [{
+      role: "user",
+      content: [
+        {
+          type: "image",
+          source: {
+            type:       "base64",
+            media_type: safeMime,
+            data:       base64,
+          },
+        },
+        {
+          type: "text",
+          text: VISION_PROMPT,
+        },
+      ],
+    }],
+  });
 
   try {
-    const response = await axios.post(
-      `${GEMINI_API_URL}?key=${apiKey}`,
-      payload,
-      {
-        headers: { "Content-Type": "application/json" },
-        timeout: 60000,  // 60 seconds
-      }
-    );
+    const command = new InvokeModelCommand({
+      modelId:     BEDROCK_MODEL,
+      contentType: "application/json",
+      accept:      "application/json",
+      body,
+    });
 
-    // Extract text from Gemini response
-    const rawContent = response.data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const response = await client.send(command);
+
+    // Extract text from Bedrock response
+    const rawContent = JSON.parse(Buffer.from(response.body).toString())
+                         .content?.[0]?.text;
+
     if (!rawContent) {
-      console.error("[vision] Empty response from Gemini API.");
-      console.error("[vision] Full response:", JSON.stringify(response.data, null, 2));
+      console.error("[vision] Empty response from Bedrock.");
       return null;
     }
 
-    console.log("[vision] Raw Gemini response:", rawContent.slice(0, 300), "...");
+    console.log("[vision] Raw Bedrock response:", rawContent.slice(0, 300), "...");
 
     const parsed = safeParseVisionResponse(rawContent);
     if (!parsed) {
-      console.error("[vision] Failed to parse Gemini JSON response.");
+      console.error("[vision] Failed to parse Bedrock JSON response.");
       return null;
     }
 
@@ -136,21 +148,14 @@ async function analyzeWithVision(imageBuffer, mimeType = "image/jpeg") {
     return parsed;
 
   } catch (err) {
-    if (err.response) {
-      const status = err.response.status;
-      const errMsg = err.response.data?.error?.message || "Unknown API error";
-
-      if (status === 400) {
-        console.error("[vision] ❌ Bad request — check image format or prompt:", errMsg);
-      } else if (status === 403) {
-        console.error("[vision] ❌ Invalid or missing Gemini API key:", errMsg);
-      } else if (status === 429) {
-        console.error("[vision] ❌ Gemini rate limit exceeded — wait 60s and retry:", errMsg);
-      } else {
-        console.error(`[vision] ❌ Gemini API error ${status}:`, errMsg);
-      }
-    } else if (err.code === "ECONNABORTED") {
-      console.error("[vision] ❌ Gemini API timed out after 60 seconds.");
+    if (err.name === "AccessDeniedException") {
+      console.error("[vision] ❌ AWS Access Denied — check IAM permissions for Bedrock.");
+    } else if (err.name === "ThrottlingException") {
+      console.error("[vision] ❌ Bedrock rate limit exceeded — retry after a moment.");
+    } else if (err.name === "ValidationException") {
+      console.error("[vision] ❌ Invalid request to Bedrock:", err.message);
+    } else if (err.name === "ResourceNotFoundException") {
+      console.error("[vision] ❌ Model not found — check model ID and region:", err.message);
     } else {
       console.error("[vision] ❌ Unexpected error:", err.message);
     }
@@ -163,7 +168,7 @@ async function analyzeWithVision(imageBuffer, mimeType = "image/jpeg") {
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
- * Safely parse Gemini's response.
+ * Safely parse Bedrock's response.
  * Handles cases where the model wraps JSON in markdown code blocks.
  */
 function safeParseVisionResponse(raw) {
@@ -216,5 +221,5 @@ function safeParseVisionResponse(raw) {
 module.exports = {
   analyzeWithVision,
   safeParseVisionResponse,
-  VISION_MODEL: GEMINI_MODEL,
+  VISION_MODEL: BEDROCK_MODEL,
 };
