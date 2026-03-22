@@ -1,10 +1,7 @@
-
 const express = require("express");
 const multer  = require("multer");
 const router  = express.Router();
-
 const { analyzePrescription, getMedicineInfo } = require("../controllers/prescriptionController");
-const { protect } = require("../middleware/authMiddleware");
 
 // ── Multer: keep files in memory (no disk writes), max 10 MB ─────────────────
 const upload = multer({
@@ -21,8 +18,7 @@ const upload = multer({
 // ── Conditional multer middleware (only for multipart requests) ───────────────
 function maybeUpload(req, res, next) {
   const ct = req.headers["content-type"] || "";
-  if (!ct.includes("multipart/form-data")) return next(); // JSON body — skip multer
-
+  if (!ct.includes("multipart/form-data")) return next();
   upload.single("file")(req, res, (err) => {
     if (!err) return next();
     if (err instanceof multer.MulterError && err.code === "LIMIT_FILE_SIZE")
@@ -32,15 +28,13 @@ function maybeUpload(req, res, next) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// POST /api/prescription/analyze
-//   - multipart/form-data { file: image | pdf }
-//   - application/json    { ocrText: string }
+// POST /api/prescription/analyze  — public (no login required)
 // ─────────────────────────────────────────────────────────────────────────────
-router.post("/analyze", protect, maybeUpload, analyzePrescription);
+router.post("/analyze", maybeUpload, analyzePrescription);
 
 // ─────────────────────────────────────────────────────────────────────────────
-// GET /api/prescription/medicine/:name
+// GET /api/prescription/medicine/:name  — public (no login required)
 // ─────────────────────────────────────────────────────────────────────────────
-router.get("/medicine/:name", protect, getMedicineInfo);
+router.get("/medicine/:name", getMedicineInfo);
 
 module.exports = router;
