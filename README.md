@@ -163,11 +163,22 @@ python app.py
 
 ---
 
-## 👩‍💻 Authors
+# Author
+## 👨‍💻 Developed By
 
-**Yasasswini** — [@yasasswini08](https://github.com/yasasswini08)
+**Yasasswini Idimukkala**  
+📧 [yasasswini.idimukkala.8@gmail.com]  
+🔗 [LinkedIn](https://www.linkedin.com/in/idimukkala-yasasswini) | [GitHub](https://github.com/yasasswini08)
 
-**Bala Praharsha Mannepalli**
+**Bala Praharsha Mannepalli**  
+📧 [balapraharsha.m@gmail.com]  
+🔗 [LinkedIn](https://linkedin.com/in/mannepalli-bala-praharsha) | [GitHub](https://github.com/balapraharsha)  
+
+---
+
+## 💖 Show Some Love
+Enjoying this project? Give it a **star** ⭐ on GitHub!  
+Contributions, suggestions, and forks are always welcome.
 
 ---
 
