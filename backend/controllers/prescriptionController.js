@@ -315,8 +315,7 @@ const analyzePrescription = async (req, res) => {
 
         if (visionResult === null) {
           // Vision service unavailable (no API key or error)
-          const apiKey = process.env.GEMINI_API_KEY;
-          const keySet = apiKey && apiKey.trim() !== "" && apiKey !== "your_gemini_api_key_here";
+          const keySet = process.env.BEDROCK_API_KEY && process.env.BEDROCK_API_KEY.trim() !== "";
 
           if (!keySet) {
             ocrText = "[Vision API not configured]";
