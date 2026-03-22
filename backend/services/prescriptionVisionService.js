@@ -1,12 +1,10 @@
-const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime");
+const axios = require("axios");
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Config
 // ─────────────────────────────────────────────────────────────────────────────
 const BEDROCK_MODEL = "anthropic.claude-3-haiku-20240307-v1:0";
 
-// Structured prompt for maximum extraction accuracy on messy handwriting.
-// Returns strict, parseable JSON only.
 const VISION_PROMPT = `You are a senior clinical pharmacist with 25 years of experience reading
 doctor's handwritten prescriptions, especially from Indian hospitals where Telugu and English are mixed.
 
@@ -44,24 +42,12 @@ If no medicines are legible, return:
 // ─────────────────────────────────────────────────────────────────────────────
 // Core Vision Analysis Function
 // ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * analyzeWithVision
- * Sends a prescription image Buffer to AWS Bedrock Claude and returns structured
- * medicine data.
- *
- * @param {Buffer} imageBuffer  — raw image bytes from multer memory storage
- * @param {string} mimeType     — e.g. "image/jpeg", "image/png", "image/webp"
- * @returns {Promise<Object|null>}  { medicines[], prescriptionType, notes } or null
- */
 async function analyzeWithVision(imageBuffer, mimeType = "image/jpeg") {
-  const accessKey = process.env.AWS_ACCESS_KEY_ID;
-  const secretKey = process.env.AWS_SECRET_ACCESS_KEY;
-  const region    = process.env.AWS_REGION || "us-east-1";
+  const apiKey = process.env.BEDROCK_API_KEY;
+  const region = process.env.BEDROCK_REGION || "us-east-1";
 
-  if (!accessKey || !secretKey) {
-    console.warn("[vision] AWS credentials not set — Vision analysis unavailable.");
-    console.warn("[vision] Add AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY to your environment variables.");
+  if (!apiKey || apiKey.trim() === "") {
+    console.warn("[vision] BEDROCK_API_KEY not set — Vision analysis unavailable.");
     return null;
   }
 
@@ -70,26 +56,15 @@ async function analyzeWithVision(imageBuffer, mimeType = "image/jpeg") {
     return null;
   }
 
-  // Validate mime type
   const validMimes = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
   const safeMime   = validMimes.includes(mimeType) ? mimeType : "image/jpeg";
-
-  // Convert buffer to base64
-  const base64 = imageBuffer.toString("base64");
+  const base64     = imageBuffer.toString("base64");
 
   console.log(`[vision] Sending ${Math.round(base64.length / 1024)} KB image to ${BEDROCK_MODEL} (${safeMime})...`);
 
-  // Build AWS Bedrock client
-  const client = new BedrockRuntimeClient({
-    region,
-    credentials: {
-      accessKeyId:     accessKey,
-      secretAccessKey: secretKey,
-    },
-  });
+  const url = `https://bedrock-runtime.${region}.amazonaws.com/model/${BEDROCK_MODEL}/invoke`;
 
-  // Build Claude payload
-  const body = JSON.stringify({
+  const payload = {
     anthropic_version: "bedrock-2023-05-31",
     max_tokens:        4096,
     temperature:       0.1,
@@ -110,24 +85,23 @@ async function analyzeWithVision(imageBuffer, mimeType = "image/jpeg") {
         },
       ],
     }],
-  });
+  };
 
   try {
-    const command = new InvokeModelCommand({
-      modelId:     BEDROCK_MODEL,
-      contentType: "application/json",
-      accept:      "application/json",
-      body,
+    const response = await axios.post(url, payload, {
+      headers: {
+        "Content-Type":  "application/json",
+        "Authorization": `Bearer ${apiKey}`,
+        "Accept":        "application/json",
+      },
+      timeout: 60000,
     });
 
-    const response = await client.send(command);
-
-    // Extract text from Bedrock response
-    const rawContent = JSON.parse(Buffer.from(response.body).toString())
-                         .content?.[0]?.text;
+    const rawContent = response.data?.content?.[0]?.text;
 
     if (!rawContent) {
       console.error("[vision] Empty response from Bedrock.");
+      console.error("[vision] Full response:", JSON.stringify(response.data, null, 2));
       return null;
     }
 
@@ -148,14 +122,16 @@ async function analyzeWithVision(imageBuffer, mimeType = "image/jpeg") {
     return parsed;
 
   } catch (err) {
-    if (err.name === "AccessDeniedException") {
-      console.error("[vision] ❌ AWS Access Denied — check IAM permissions for Bedrock.");
-    } else if (err.name === "ThrottlingException") {
-      console.error("[vision] ❌ Bedrock rate limit exceeded — retry after a moment.");
-    } else if (err.name === "ValidationException") {
-      console.error("[vision] ❌ Invalid request to Bedrock:", err.message);
-    } else if (err.name === "ResourceNotFoundException") {
-      console.error("[vision] ❌ Model not found — check model ID and region:", err.message);
+    if (err.response) {
+      const status = err.response.status;
+      const errMsg = err.response.data?.message || "Unknown API error";
+      if (status === 400) console.error("[vision] ❌ Bad request:", errMsg);
+      else if (status === 401 || status === 403) console.error("[vision] ❌ Invalid or expired Bedrock API key:", errMsg);
+      else if (status === 429) console.error("[vision] ❌ Rate limit exceeded — retry after a moment:", errMsg);
+      else if (status === 404) console.error("[vision] ❌ Model not found — check model ID and region:", errMsg);
+      else console.error(`[vision] ❌ Bedrock API error ${status}:`, errMsg);
+    } else if (err.code === "ECONNABORTED") {
+      console.error("[vision] ❌ Bedrock API timed out after 60 seconds.");
     } else {
       console.error("[vision] ❌ Unexpected error:", err.message);
     }
@@ -166,20 +142,12 @@ async function analyzeWithVision(imageBuffer, mimeType = "image/jpeg") {
 // ─────────────────────────────────────────────────────────────────────────────
 // Response Parser
 // ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * Safely parse Bedrock's response.
- * Handles cases where the model wraps JSON in markdown code blocks.
- */
 function safeParseVisionResponse(raw) {
   if (!raw || typeof raw !== "string") return null;
 
   let text = raw.trim();
-
-  // Strip ```json ... ``` or ``` ... ``` wrappers
   text = text.replace(/^```(?:json)?\s*/i, "").replace(/\s*```\s*$/, "").trim();
 
-  // Extract just the JSON object
   const firstBrace = text.indexOf("{");
   const lastBrace  = text.lastIndexOf("}");
   if (firstBrace !== -1 && lastBrace > firstBrace) {
@@ -190,9 +158,7 @@ function safeParseVisionResponse(raw) {
     const parsed = JSON.parse(text);
     if (!parsed || typeof parsed !== "object") return null;
 
-    if (!Array.isArray(parsed.medicines)) {
-      parsed.medicines = [];
-    }
+    if (!Array.isArray(parsed.medicines)) parsed.medicines = [];
 
     parsed.medicines = parsed.medicines
       .filter(m => m && (m.name || m.normalizedName))
